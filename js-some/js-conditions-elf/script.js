@@ -112,18 +112,21 @@
 // console.log(season);
 
 // 5.
-let name = ["Brigita", "Vilte", "Lukas"];
-let personName = name[1];
-let result = personName
-  .split("")
-  .slice(0, personName.length - 1)
-  .join("");
-let last = personName
-  .split("")
-  .slice(personName.length - 1, personName.length)
-  .join();
+// let name = ["Brigita", "Vilte", "Lukas"];
+// let personName = name[1];
+// let result = personName
+//   .split("")
+//   .slice(0, personName.length - 1)
+//   .join("");
+// let last = personName
+//   .split("")
+//   .slice(personName.length - 1, personName.length)
+//   .join();
 
-let ref = "";
-if (last === "s") ref = result.concat("i");
-else ref = personName;
-console.log(`Labas, ${ref}`);
+// let ref = "";
+// if (last === "s") ref = result.concat("i");
+// else ref = personName;
+// console.log(`Labas, ${ref}`);
+
+let say = document.querySelector("p");
+say.textContent = "Sveiki";
