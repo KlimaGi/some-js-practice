@@ -34,22 +34,29 @@
 // 1.
 //let age = Number(prompt("iveskite amziu"));
 
-//  day task 05-31 --- 0.3
+// day task 05-31 --- 0.3
 // let personName = "John";
 // let isLoggedIn = true;
 // let time = 21;
 // let isBirthday = false;
 
-// let dayPart;
-// if (time >= 5 && time <= 12) dayPart = "Morning";
-// else if (time >= 13 && time <= 18) dayPart = "Afternoon";
-// else if (time >= 19 || time <= 4) dayPart = "Evening";
-// let hello = `Good ${dayPart}`;
+function greeting(personName, isLoggedIn, time, isBirthday) {
+  let htmlElement = document.querySelector("h2");
+  let dayPart;
+  if (time >= 5 && time <= 12) dayPart = "Good Morning";
+  else if (time >= 13 && time <= 18) dayPart = "Good Afternoon";
+  else if ((time >= 19 && time < 24) || time <= 4) dayPart = "Good Evening";
+  else dayPart = "Hello";
 
-// if (isBirthday && isLoggedIn)
-//   console.log(hello.concat(`, ${personName} and have a great birthday!`));
-// else if (isLoggedIn) console.log(hello.concat(`, ${personName}.`));
-// else console.log(hello.concat("..."));
+  let text;
+  if (isBirthday && isLoggedIn)
+    text = `, ${personName} and have a great birthday!`;
+  else if (isLoggedIn) text = `, ${personName}.`;
+  else text = "...";
+
+  htmlElement.textContent = dayPart + text;
+}
+greeting("John", true, 31, true);
 
 // 1.
 // let age = 18;
