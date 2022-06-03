@@ -94,14 +94,44 @@ let arr2 = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 // let last4 = arr2.splice(arr2.length - 4);
 // console.log(last4);
 //3
-let remove37 = arr2.splice(2, 4);
-console.log(remove37);
-
+// let remove37 = arr2.splice(2, 5);
+// console.log(remove37);
+// console.log(arr2);
+//4
 // let remove23 = arr2.splice(1, 2);
 // console.log(remove23);
-//4
-// let removeNot1 = arr2.splice(0, 1);
-// console.log(removeNot1);
+// console.log(arr2);
 //5
 // let removeNot1 = arr2.splice(0, 1);
 // console.log(removeNot1);
+//6
+// let remove5from3 = arr2.splice(2, 5);
+// console.log(remove5from3);
+// console.log(arr2);
+//7
+// let remove3fromEndLeaveLast = arr2.splice(-4, 3);
+// console.log(remove3fromEndLeaveLast);
+// console.log(arr2);
+//8
+// let instead5add2new = arr2.splice(4, 1, "some", "movie");
+// console.log(instead5add2new);
+// console.log(arr2);
+//9
+// let remove1 = arr2.splice(0, 1);
+// console.log(remove1);
+// console.log(arr2);
+//10
+// let add0 = arr2.splice(0, 0, "some");
+// console.log(add0);
+// console.log(arr2);
+//11.1
+// let remove3from2 = arr2.splice(1, 3);
+// console.log(remove3from2);
+// console.log(arr2);
+//11.2
+// let removeLast3fromBeforeLast = arr2.splice(-4, 3);
+// console.log(removeLast3fromBeforeLast);
+// console.log(arr2);
+//11.3
+// let reverseResult = removeLast3fromBeforeLast.reverse();
+// console.log(reverseResult);
