@@ -181,24 +181,24 @@ fizzBuzz1(10, 0, 1);
 //
 {
 }
+// let result = "";
 // function fizzBuzz2(count, nth, begin) {
 //   for (let i = begin; i <= count; i += nth) {
-//     let result = !(i % 3)
-//       ? "Fizz"
+//     result = !(i % 3)
+//       ? +"Fizz"
 //       : !(i % 5)
-//       ? "Buzz"
+//       ? +"Buzz"
 //       : !(i % 7)
-//       ? "Biff"
+//       ? +"Biff"
 //       : !(i % 9)
-//       ? "Fuzz"
+//       ? +"Fuzz"
 //       : !(i % 11)
-//       ? "Ziff"
-//       : i;
+//       ? +"Ziff"
+//       : +i;
 //     console.log(result);
 //   }
 // }
 // fizzBuzz2(105, 1, 1);
-//
 
 function combo(count) {
   let com = "";
