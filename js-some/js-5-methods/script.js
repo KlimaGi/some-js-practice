@@ -66,6 +66,7 @@ console.log(splicedNum);
 
 console.groupEnd();
 
+console.groupCollapsed(" -----");
 console.log("-----task 1------");
 let arr1 = ["a", "b", "c", "d", "e", "f", "g"];
 //1
@@ -86,6 +87,8 @@ console.log(allExceptOne);
 
 console.log("-----task 2------");
 let arr2 = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+
+console.groupEnd();
 //1
 // let first5 = arr2.splice(0, 5);
 // console.log(first5);
@@ -135,3 +138,25 @@ let arr2 = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 //11.3
 // let reverseResult = removeLast3fromBeforeLast.reverse();
 // console.log(reverseResult);
+
+// for + gali break ir return;
+
+// forEach - negali: sustabdyti ir return atlikti
+let arrF = [1, 2, 3, 4];
+arrF.forEach((el) => console.log(el));
+
+// ----- nieko negrazina
+function nieko(par1) {
+  console.log(par1 + " rytas");
+}
+let naudojamNieko = nieko("Labas");
+//console.log(naudojamNieko); // undefined ,nes nieko() neturi return
+
+// func kuri nieko negauna ir return'ina
+function getCurrentDate() {
+  let date = new Date().toISOString().split("T");
+  let ats = date[0] + " " + date[1].split(".")[0];
+  return ats;
+}
+let current = getCurrentDate();
+console.log(current);

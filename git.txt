@@ -1,0 +1,65 @@
+command line:
+		cd - change directory
+		ls - list files
+		mkdir - make directory (sukurti naują aplankalą)
+	cd Desktop
+	cd vietaKurNoriKurtiNaująRepozitoriją
+	mkdir repozitorijosVardas
+	cd repozitorijosVardas
+	
+	git config --global user.name "Tavo vardas"
+	git config --global user.email "pastasKuriuoJungeisiPrieGitHub@gmail.com"
+	git config --global core.editor "code --wait"
+	git config --global -e 		- atidarys ir parodys info per editoriu
+	git config --global core.autocrlf true (vietoje "true" - "input" jei linux/mac)
+	git config --help
+
+	git init 	- sukuria repozitoriją
+
+		atlikti kokius veiksmus su failais, parašyti kanors
+	git add sukurtasFailas.tipas
+	git status
+	git commit -m "commit zinute iki 50char"
+		atlikti kokius nors veiksmus
+	git status 	- parodys kas pakeista, bet ne'commit'inta
+	git add . 	- . nurodo, kad viską prideti
+	git status
+	git commit -m "big changes"
+
+		judam prie branch'u
+	git checkout -b newBranch	- sukuriame nauja branch
+		atliekame kokius veiksmus
+	git add .
+	git commit -m "pirmas newBranch'o commit"
+	git checkout master 	- griztam i master branch
+		atliekame kokius veiksmus
+	git add .
+	git status
+	git commit -m "added something"	
+	git checkout newBranch	- grįžtam i newBranch
+	git merge master
+	git checkout master
+	
+
+		sukuriame remote repozitorija (gitHub'e)
+	git remote add origin https://github.com/somethingsomething		- copy paste eilute is github
+	git config --global user.name "BanRokas"
+	git config --global user.email "rokas.banaitis@gmail.com"		- gali prašyt ten regintis and sht
+	git push -u origin master
+		remote repository pakeisti kanors (gitHub pačiame sukurti faila or something)
+	git pull origin master
+		pakeisti kode kanors
+		pakeisti remote kanors
+	git add .
+	git commit -m "change"
+	git push 		- failino push'inti, nes nesutapo mano repository su remote
+	git pull origin master		- merge conflict gali buti jei abiejuose buvo keista ta pati eilute tame paciame faile
+		rankiniu budu reikia eiti ir taisyti (delete arrows visus ir padaryti taip kaip nori, kad atrodytu)
+	git add .
+	git commit -m "taisiau"
+	git push
+	
+	git checkout newBranch
+	git push origin newBranch
+		eiti i gitHub, refresh page, spausti ant branches ir NewPullRequest spausti
+		creat draft pull request -> files changed
