@@ -138,25 +138,3 @@ console.groupEnd();
 //11.3
 // let reverseResult = removeLast3fromBeforeLast.reverse();
 // console.log(reverseResult);
-
-// for + gali break ir return;
-
-// forEach - negali: sustabdyti ir return atlikti
-let arrF = [1, 2, 3, 4];
-arrF.forEach((el) => console.log(el));
-
-// ----- nieko negrazina
-function nieko(par1) {
-  console.log(par1 + " rytas");
-}
-let naudojamNieko = nieko("Labas");
-//console.log(naudojamNieko); // undefined ,nes nieko() neturi return
-
-// func kuri nieko negauna ir return'ina
-function getCurrentDate() {
-  let date = new Date().toISOString().split("T");
-  let ats = date[0] + " " + date[1].split(".")[0];
-  return ats;
-}
-let current = getCurrentDate();
-console.log(current);

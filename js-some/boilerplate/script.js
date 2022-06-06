@@ -1,0 +1,2 @@
+console.groupCollapsed("");
+console.groupEnd();
