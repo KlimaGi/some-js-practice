@@ -178,28 +178,7 @@ function fizzBuzz1(begin, end, nth) {
 }
 fizzBuzz1(10, 0, 1);
 
-//
-{
-}
-// let result = "";
-// function fizzBuzz2(count, nth, begin) {
-//   for (let i = begin; i <= count; i += nth) {
-//     result = !(i % 3)
-//       ? +"Fizz"
-//       : !(i % 5)
-//       ? +"Buzz"
-//       : !(i % 7)
-//       ? +"Biff"
-//       : !(i % 9)
-//       ? +"Fuzz"
-//       : !(i % 11)
-//       ? +"Ziff"
-//       : +i;
-//     console.log(result);
-//   }
-// }
-// fizzBuzz2(105, 1, 1);
-
+// -------------------------- do while
 function combo(count) {
   let com = "";
   const word = "Yo";
@@ -212,6 +191,7 @@ function combo(count) {
 }
 //combo(0);
 
+//-------------------------------------------------------------
 let lor = "Lorem ipsum dolor sit amet";
 function change(lor, func = undefined) {
   let len;
