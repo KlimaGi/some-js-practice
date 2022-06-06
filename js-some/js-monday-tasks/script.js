@@ -49,23 +49,23 @@ console.log(num(5, 12));
 // ---- win posibility
 let winPosibility = num(1, 5);
 let winAnounce = winPosibility === 3 ? "you win" : "try again";
-console.log(["winPosibility", winPosibility]);
+console.log(["winPosibility", winPosibility, winAnounce]);
 console.groupEnd();
 
 // --------
-document.getElementById("subTitle").innerHTML =
-  "<h3 style='color:purple'>DOM tasks</h3>";
+// document.getElementById("subTitle").innerHTML =
+//   "<h3 style='color:purple'>DOM tasks</h3>";
 
 // resultatas []
+
 document.getElementsByClassName("text")[0].textContent = "Lorem";
 document.getElementsByClassName("text")[3].textContent = "ipsum";
+//console.log(document.getElementsByClassName("text"));
 
 document.getElementById("subTitle").innerHTML =
-  "<h3 style='color:purple'>Gi</h3>";
+  "<h3 style='color:pink'>Gi</h3>";
 
 document.getElementsByClassName("li")[2].textContent = "liuu";
-
-document.querySelector("p").textContent = "So";
 
 document.querySelector("li:last-child").textContent = "second blue lorem";
 
