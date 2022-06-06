@@ -48,6 +48,35 @@ console.log(num(5, 12));
 
 // ---- win posibility
 let winPosibility = num(1, 5);
-let winAnounce = winPosibility === 3 ? alert("you win") : alert("try again");
+let winAnounce = winPosibility === 3 ? "you win" : "try again";
 console.log(["winPosibility", winPosibility]);
 console.groupEnd();
+
+// --------
+document.getElementById("subTitle").innerHTML =
+  "<h3 style='color:purple'>DOM tasks</h3>";
+
+// resultatas []
+document.getElementsByClassName("text")[0].textContent = "Lorem";
+document.getElementsByClassName("text")[3].textContent = "ipsum";
+
+document.getElementById("subTitle").innerHTML =
+  "<h3 style='color:purple'>Gi</h3>";
+
+document.getElementsByClassName("li")[2].textContent = "liuu";
+
+document.querySelector("p").textContent = "So";
+
+document.querySelector("li:last-child").textContent = "second blue lorem";
+
+// DOM task-3
+document.querySelector("p.bluetext span").textContent = "blue";
+
+const firstLi = document.querySelector("ol li:first-child");
+const secondLi = document.querySelector("ol li:nth-child(2)");
+
+let bmw = firstLi.textContent;
+let vw = secondLi.textContent;
+
+firstLi.textContent = vw;
+secondLi.textContent = bmw;
