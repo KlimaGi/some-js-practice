@@ -85,6 +85,19 @@ console.log(midle23);
 let allExceptOne = arr1.slice(1);
 console.log(allExceptOne);
 
+// 6 isimti 2 ir 4 is listo
+let task6 = arr1.slice(1, 2);
+console.log("task6", task6);
+
+let task61 = arr1.slice(3, 4);
+console.log("task61", task61);
+
+// task6.push(task61[0]);
+// console.log("task6", task6);
+
+let task62 = task6.concat(task61);
+console.log("task62", task62);
+
 console.log("-----task 2------");
 let arr2 = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
@@ -121,6 +134,8 @@ console.groupEnd();
 // console.log(arr2);
 //9
 // let remove1 = arr2.splice(0, 1);
+// let removefirst = arr2.shift();
+// console.log(arr2);
 // console.log(remove1);
 // console.log(arr2);
 //10
@@ -138,3 +153,54 @@ console.groupEnd();
 //11.3
 // let reverseResult = removeLast3fromBeforeLast.reverse();
 // console.log(reverseResult);
+
+//12 list ekrane, prideti eiles nr
+//let list = document.querySelector("ul");
+// list.innerHTML += `<li>1. ${arr2[0]}</li>`;
+// list.innerHTML += `<li>2. ${arr2[1]}</li>`;
+
+function listMovies(arr) {
+  let list = document.querySelector("ul");
+
+  for (let i = 0; i < arr.length; i++) {
+    list.innerHTML += `<li>${i + 1}. ${arr[i]}</li>`;
+  }
+}
+//listMovies(arr2);
+let rev = arr2.reverse();
+
+//13 filmai turi datas
+const moviesD = [
+  { name: "filmas1", year: 2001 },
+  { name: "filmas2", year: 2006 },
+  { name: "filmas3", year: 2011 },
+  { name: "filmas4", year: 2021 },
+  { name: "", year: 2014 },
+  { name: "filmas6" },
+];
+function listMoviesD(arr) {
+  let list = document.querySelector("ul");
+  for (let i = 0; i < arr.length; i++) {
+    if (!arr[i].name) continue;
+    list.innerHTML += `<li>${i + 1}. ${arr[i].name}, ${
+      arr[i].year || ""
+    } </li>`;
+  }
+}
+listMoviesD(moviesD);
+
+// 14.1 dar 2 filmu arr, i ekrana isvesti kaip viena list'a
+const moviesD1 = [
+  { name: "filmas7", year: 2021 },
+  { name: "filmas8", year: 2020 },
+  { name: "filmas9", year: 2018 },
+];
+const moviesD2 = [
+  { name: "filmas10", year: 2017 },
+  { name: "filmas11", year: 2021 },
+  { name: "filmas12", year: 2019 },
+];
+
+const oneArr = moviesD.concat(moviesD1).concat(moviesD2);
+console.log(oneArr);
+listMoviesD(oneArr);
