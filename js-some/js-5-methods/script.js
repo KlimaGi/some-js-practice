@@ -102,63 +102,63 @@ console.log("-----task 2------");
 let arr2 = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
 console.groupEnd();
-//1
-// let first5 = arr2.splice(0, 5);
-// console.log(first5);
-//2
-//let last4 = arr2.splice(6);
-// let last4 = arr2.splice(arr2.length - 4);
-// console.log(last4);
-//3
-// let remove37 = arr2.splice(2, 5);
-// console.log(remove37);
-// console.log(arr2);
-//4
-// let remove23 = arr2.splice(1, 2);
-// console.log(remove23);
-// console.log(arr2);
-//5
-// let removeNot1 = arr2.splice(0, 1);
-// console.log(removeNot1);
-//6
-// let remove5from3 = arr2.splice(2, 5);
-// console.log(remove5from3);
-// console.log(arr2);
-//7
-// let remove3fromEndLeaveLast = arr2.splice(-4, 3);
-// console.log(remove3fromEndLeaveLast);
-// console.log(arr2);
-//8
-// let instead5add2new = arr2.splice(4, 1, "some", "movie");
-// console.log(instead5add2new);
-// console.log(arr2);
-//9
-// let remove1 = arr2.splice(0, 1);
-// let removefirst = arr2.shift();
-// console.log(arr2);
-// console.log(remove1);
-// console.log(arr2);
-//10
-// let add0 = arr2.splice(0, 0, "some");
-// console.log(add0);
-// console.log(arr2);
-//11.1
-// let remove3from2 = arr2.splice(1, 3);
-// console.log(remove3from2);
-// console.log(arr2);
-//11.2
-// let removeLast3fromBeforeLast = arr2.splice(-4, 3);
-// console.log(removeLast3fromBeforeLast);
-// console.log(arr2);
-//11.3
-// let reverseResult = removeLast3fromBeforeLast.reverse();
-// console.log(reverseResult);
-
-//12 list ekrane, prideti eiles nr
-//let list = document.querySelector("ul");
-// list.innerHTML += `<li>1. ${arr2[0]}</li>`;
-// list.innerHTML += `<li>2. ${arr2[1]}</li>`;
-
+{
+  //1
+  // let first5 = arr2.splice(0, 5);
+  // console.log(first5);
+  //2
+  //let last4 = arr2.splice(6);
+  // let last4 = arr2.splice(arr2.length - 4);
+  // console.log(last4);
+  //3
+  // let remove37 = arr2.splice(2, 5);
+  // console.log(remove37);
+  // console.log(arr2);
+  //4
+  // let remove23 = arr2.splice(1, 2);
+  // console.log(remove23);
+  // console.log(arr2);
+  //5
+  // let removeNot1 = arr2.splice(0, 1);
+  // console.log(removeNot1);
+  //6
+  // let remove5from3 = arr2.splice(2, 5);
+  // console.log(remove5from3);
+  // console.log(arr2);
+  //7
+  // let remove3fromEndLeaveLast = arr2.splice(-4, 3);
+  // console.log(remove3fromEndLeaveLast);
+  // console.log(arr2);
+  //8
+  // let instead5add2new = arr2.splice(4, 1, "some", "movie");
+  // console.log(instead5add2new);
+  // console.log(arr2);
+  //9
+  // let remove1 = arr2.splice(0, 1);
+  // let removefirst = arr2.shift();
+  // console.log(arr2);
+  // console.log(remove1);
+  // console.log(arr2);
+  //10
+  // let add0 = arr2.splice(0, 0, "some");
+  // console.log(add0);
+  // console.log(arr2);
+  //11.1
+  // let remove3from2 = arr2.splice(1, 3);
+  // console.log(remove3from2);
+  // console.log(arr2);
+  //11.2
+  // let removeLast3fromBeforeLast = arr2.splice(-4, 3);
+  // console.log(removeLast3fromBeforeLast);
+  // console.log(arr2);
+  //11.3
+  // let reverseResult = removeLast3fromBeforeLast.reverse();
+  // console.log(reverseResult);
+  //12 list ekrane, prideti eiles nr
+  //let list = document.querySelector("ul");
+  // list.innerHTML += `<li>1. ${arr2[0]}</li>`;
+  // list.innerHTML += `<li>2. ${arr2[1]}</li>`;
+}
 function listMovies(arr) {
   let list = document.querySelector("ul");
 
@@ -167,7 +167,16 @@ function listMovies(arr) {
   }
 }
 //listMovies(arr2);
-let rev = arr2.reverse();
+//let rev = arr2.reverse();
+
+function listMoviesM(arr) {
+  let list = document.querySelector("ul");
+
+  arr.map(
+    (item, index) => (list.innerHTML += `<li>${index + 1}. ${item}</li>`)
+  );
+}
+//listMoviesM(arr2);
 
 //13 filmai turi datas
 const moviesD = [
@@ -180,11 +189,15 @@ const moviesD = [
 ];
 function listMoviesD(arr) {
   let list = document.querySelector("ul");
+
   for (let i = 0; i < arr.length; i++) {
+    let num = i + 1;
+    let nameM = arr[i].name;
+    let yearM = arr[i].year || "";
+
     if (!arr[i].name) continue;
-    list.innerHTML += `<li>${i + 1}. ${arr[i].name}, ${
-      arr[i].year || ""
-    } </li>`;
+
+    list.innerHTML += `<li>${num}. ${nameM}, ${yearM} </li>`;
   }
 }
 //listMoviesD(moviesD);
@@ -201,8 +214,8 @@ const moviesD2 = [
   { name: "filmas12", year: 2019 },
 ];
 
-const oneArr = moviesD.concat(moviesD1).concat(moviesD2);
-console.log(oneArr);
+const oneArr = moviesD.concat(moviesD1, moviesD2);
+//console.log(oneArr);
 //listMoviesD(oneArr);
 
 // movies with arr
@@ -221,13 +234,30 @@ function moviesWithYearList2(moviesarr) {
   for (let i = 0; i < moviesarr.length; i++) {
     let num = i + 1;
     let movieName = moviesarr[i][0];
-    //let movieYear = moviesarr[i][1] || "";
     let movieYear = moviesarr[i][1] ? `(${moviesarr[i][1]})` : "";
 
     moviesListElement.innerHTML += `<li>${num}. ${movieName} ${movieYear} </li>`;
   }
 }
 //moviesWithYearList2(moviesWithYearList);
+function moviesWithYearList2m(moviesarr) {
+  let moviesListElement = document.querySelector("ul");
+
+  for (let i = 0; i < moviesarr.length; i++) {
+    let num = i + 1;
+    let movieName = moviesarr[i][0];
+    let movieYear = moviesarr[i][1] ? `(${moviesarr[i][1]})` : "";
+
+    moviesListElement.innerHTML += `<li>${num}. ${movieName} ${movieYear} </li>`;
+  }
+  moviesarr.map((movie, index) => {
+    let num = index + 1;
+    let movieName = movie[0];
+    let movieYear = movie[1] ? `(${movie[1]})` : "";
+    moviesListElement.innerHTML += `<li>${num}. ${movieName} --- ${movieYear}</li>`;
+  });
+}
+//moviesWithYearList2m(moviesWithYearList);
 
 // more arr
 let movies1 = [
@@ -243,9 +273,7 @@ let movies3 = ["filmas14", "filmas15", "filmas16"];
 
 //let allM = [];
 //allM.push(movies1, movies2);
-let allM = [movies1, movies2];
-console.log(allM);
-console.log(allM.length);
+let allM = [movies1, movies2]; // [ [], [] ]
 
 function nestedArr(moviesArr) {
   let moviesListElement = document.querySelector("ul");
@@ -280,28 +308,75 @@ function listMoviesSo(arr) {
 }
 //listMoviesSo(allMoviesFlat);
 
-// spread
+function listMoviesSo1(arr) {
+  let list = document.querySelector("ul");
+  arr.map(
+    (item, index) => (list.innerHTML += `<li>${index + 1}. ${item} -- </li>`)
+  );
+}
+//listMoviesSo1(allMoviesFlat);
+
+// ----------- spread -------------------
 let allMoviesSpread = [...movies1, ...movies2, ...movies3];
 console.log("allMoviesSpread", allMoviesSpread);
 listMoviesSo(allMoviesSpread);
-
-// Map
 
 console.log("---------Map-------");
 let citiesArr = ["Vln", "Klp", "Kau", "Sl", "Pan"];
 
 citiesArr.map((city, index) => console.log(index + 1, city));
 
-// perdaryti funkcijas su map
 // UŽDUOTIS (papildoma):
 // 1. Sukurti 10-ies skaičių masyvą.
+let arrNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 // 2. Sukurti funkciją, kuri priima skaičių masyvą ir grąžina jų vidurkį.
+function average(arr) {
+  let sum = arr.reduce((prev, current) => prev + current, 0);
+  return sum / arr.length;
+}
+console.log(average(arrNum));
 // 2.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) vidurkis yra 15"
+let avg = average(arrNum);
+let text = document.querySelector("p");
+text.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) vidurkis yra ${avg}`;
 // 3. Sukurti funkciją, kuri priima skaičių masyvą ir grąžina jų medianą.
+function mediana(arr) {
+  let middle = Math.floor(arr.length / 2);
+  return middle;
+}
+let med = mediana(arrNum);
 // 3.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) mediana yra 15"
+let txtM = document.querySelector("p.mediana");
+txtM.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) mediana yra ${med}`;
 // 4. Sukurti funkciją, kuri priima skaičių masyvą ir grąžina didžiausia jame esantį skaičių.
+function maxnum(arr) {
+  let num = arr.sort((a, b) => a - b).pop();
+  return num;
+}
+let num = maxnum(arrNum);
+console.log(num);
 // 4.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) didžiausias skaičius yra 15"
+let maxNumtxt = document.querySelector("p.maxn");
+maxNumtxt.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) didžiausias skaičius yra ${num}`;
 // 5. Sukurti funkciją, kuri priima skaičių masyvą ir grąžina mažiausią jame esantį skaičių.
+function minnum(arr) {
+  let num = arr.sort((a, b) => b - a).pop();
+  return num;
+}
+let minn = minnum(arrNum);
+console.log(minn);
 // 5.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) mažiausias skaičius yra 1"
+let minNumtxt = document.querySelector("p.minn");
+minNumtxt.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) didžiausias skaičius yra ${minn}`;
 // 6. Sukurti funkciją, kuri priima skaičių masyvą ir grąžina n-tąjį skaičių pagal dydį (skaičiuojant nuo mažiausio iki didžiausio).
+let arry = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function numByN(arr, nth) {
+  let num = arr.sort((a, b) => a - b);
+  console.log(num);
+  return num[nth - 1];
+}
+let numnth = numByN(arry, 3);
+console.log(numnth);
 // 6.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) trečias skaičius pagal dydį yra 3"
+let nthnum = document.querySelector("p.nth");
+nthnum.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) trečias skaičius pagal dydį yra ${nthnum}`;
