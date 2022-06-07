@@ -25,7 +25,7 @@ console.groupEnd();
 console.groupCollapsed("");
 console.groupEnd();
 
-console.group("cao");
+console.groupCollapsed("cao");
 
 // [0, 1) - neiskaitant 1
 const random = Math.floor(Math.random() * 10);
@@ -80,3 +80,66 @@ let vw = secondLi.textContent;
 
 firstLi.textContent = vw;
 secondLi.textContent = bmw;
+
+console.group("cao - 5 funkcijos ir eventai");
+//1
+function namew(word) {
+  console.log(word);
+}
+namew("Gi");
+
+//2
+let rand = () => {
+  let min = Math.ceil(5);
+  let max = Math.floor(1);
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+console.log("rand", rand());
+// 3
+let wordsLength = (word1, word2) => {
+  return word1.length + word2.length;
+};
+console.log("wordsLength", wordsLength("pieva", "suma"));
+// 4
+let abc = ["a", "b", "c", "d", "e", "f"];
+let abcByNum = (num, arr) => arr[num];
+console.log(abcByNum(1, abc));
+
+// 5
+function calculator(num1, num2, operator) {
+  let result = 0;
+  switch (operator) {
+    case "sum":
+      result = num1 + num2;
+      break;
+    case "sub":
+      result = num1 - num2;
+      break;
+    case "div":
+      result = num1 / num2;
+      break;
+    case "multi":
+      result = num1 * num2;
+      break;
+    default:
+      console.error("There is no such operator");
+  }
+  return result;
+}
+console.log(calculator(1, 2, "sum"));
+console.log(calculator(1, 2, "sub"));
+console.log(calculator(1, 2, "div"));
+console.log(calculator(2, 3, "multi"));
+
+// 6
+let rand1 = () => {
+  let min = Math.ceil(10);
+  let max = Math.floor(1);
+  let result = Math.floor(Math.random() * (max - min + 1) + min);
+  return result;
+};
+let square = (x) => x * x;
+console.log("rand1", rand1());
+let result = square(rand1());
+console.log("result", result);
+console.groupEnd();
