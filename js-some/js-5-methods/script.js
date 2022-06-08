@@ -372,11 +372,81 @@ minNumtxt.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) didžiausias skaičius yra 
 let arry = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 function numByN(arr, nth) {
   let num = arr.sort((a, b) => a - b);
-  console.log(num);
   return num[nth - 1];
 }
 let numnth = numByN(arry, 3);
 console.log(numnth);
 // 6.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) trečias skaičius pagal dydį yra 3"
 let nthnum = document.querySelector("p.nth");
-nthnum.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) trečias skaičius pagal dydį yra ${nthnum}`;
+nthnum.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) trečias skaičius pagal dydį yra ${numnth}`;
+
+// ForEach metodas
+citiesArr.forEach((city) => {
+  console.log("ForEach ciklas: " + city);
+});
+
+let numArr = [1, 3, 5, 8, 9, 34];
+
+// Filter
+console.log("---------Filter--------");
+
+let filteredArray = numArr.filter((number) => number >= 5);
+console.log("filteredArray " + filteredArray);
+
+let num20 = [-4, 6, -7, 3, 0, 4, 9, 445, 32, 15, 32, 16];
+
+let big10 = num20.filter((num) => num > 10);
+console.log(big10);
+let less0 = num20.filter((num) => num < 0);
+console.log(less0);
+
+let num35 = num20.filter(
+  (num) => (num % 3 === 0 || num % 5 === 0) && num !== 0
+);
+console.log(num35);
+
+let num413 = num20.filter((num) => num % 4 === 0 && num > 13);
+console.log(num413);
+
+//
+console.log("---------Reduce--------");
+let redArr = [1, 2, 3, 4];
+let arrSum = redArr.reduce((prev, current) => {
+  console.log(prev);
+  return prev + current;
+}, 0);
+console.log(arrSum);
+
+let words = [
+  "raide",
+  "trigonometrija",
+  "pasas",
+  "prastas",
+  "figa",
+  "paunksme",
+  "kartotinis",
+];
+let ende = words.filter((word) => word.split("").pop() === "e");
+let ende1 = words.filter((word) => word.trimEnd().slice(-1) === "e");
+console.log(ende1);
+let more8 = words.filter((word) => word.length > 8);
+console.log(more8);
+let odd = words.filter((word) => word.length % 2 !== 0);
+console.log(odd);
+let as = words.filter((word) => word.includes("as"));
+console.log(as);
+
+let countries1 = ["LT", "PL", "LA", "ES", "GB", "SP", "IT"];
+//let all = countries.reduce((prev, current) => prev + ", " + current) + ".";
+
+let all = countries1.reduce((prev, current, currIndex, arr) => {
+  let currpoint = currIndex === arr.length - 1 ? current + "." : current + ", ";
+  let returns = prev + currpoint;
+
+  return returns;
+}, "Countires: ");
+
+console.log(all);
+
+let joined = "Countries: " + countries.join(", ") + ".";
+console.log(joined);
