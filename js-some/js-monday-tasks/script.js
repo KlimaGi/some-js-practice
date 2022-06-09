@@ -81,7 +81,7 @@ let vw = secondLi.textContent;
 firstLi.textContent = vw;
 secondLi.textContent = bmw;
 
-console.group("cao - 5 funkcijos ir eventai");
+console.groupCollapsed("cao - 5 funkcijos ir eventai");
 //1
 function namew(word) {
   console.log(word);
@@ -143,3 +143,77 @@ console.log("rand1", rand1());
 let result = square(rand1());
 console.log("result", result);
 console.groupEnd();
+
+// --------------- events ---------------
+console.group("events");
+const titleEl = document.querySelector("h4.title");
+const btnEl = document.querySelector("button.btn");
+
+btnEl.addEventListener("click", sayHello);
+
+function sayHello() {
+  titleEl.textContent = "Title about hello";
+}
+
+// 1-2
+const btnName = document.querySelector("button.btnName");
+btnName.addEventListener("click", sayName);
+
+function sayName() {
+  alert("Hi, Gi");
+}
+// 3
+
+const btnAboutEl = document.querySelector("button.btnAbout");
+const ptxtEl = document.querySelector("p.txtLorem");
+
+btnAboutEl.addEventListener("click", showTxtAbout);
+
+function showTxtAbout() {
+  ptxtEl.textContent =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id temporibus voluptatem similique excepturi repudiandae quisquam.";
+}
+
+// 4
+const btnCount = document.querySelector("button.btnCount");
+const countEl = document.querySelector("h4.count");
+let counter = 0;
+
+btnCount.addEventListener("click", () => {
+  counter++;
+  countEl.innerText = counter;
+});
+
+console.groupEnd();
+
+// 5
+const noCopyEl = document.querySelector("p.nocopy");
+
+noCopyEl.addEventListener("copy", () => {
+  alert("Don't copy");
+});
+
+// 6
+const btnGenerateNum = document.querySelector("button.generateNum");
+const showNum = document.querySelector("h4.randNum");
+
+btnGenerateNum.addEventListener("click", () => {
+  let min = Math.ceil(50);
+  let max = Math.floor(-50);
+  let randomNum = Math.floor(Math.random() * (max - min + 1) + min);
+  showNum.textContent = randomNum;
+});
+
+// 7
+const btn18El = document.querySelector("button.has18");
+const btnNot18El = document.querySelector("button.less18");
+const text18El = document.querySelector("h4.text18");
+
+btn18El.addEventListener("click", () => {
+  text18El.textContent = "Alus";
+});
+btnNot18El.addEventListener("click", () => {
+  text18El.textContent = "nepilnametis - nieko neturim";
+});
+
+// 8
