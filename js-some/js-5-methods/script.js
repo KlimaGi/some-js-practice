@@ -339,6 +339,7 @@ const badNumbers = [
   22,
   6,
   true,
+  false,
   58,
   "77",
   NaN,
@@ -348,19 +349,21 @@ const badNumbers = [
   29,
   null,
   105,
+  "",
   84,
 ];
-const goodNums = badNumbers.filter((num) => Number(num));
-console.log("goodNums", goodNums);
-console.log("typeof num === Number", typeof 7);
+let goodNums = badNumbers
+  .filter((num) => Number(num) && typeof num !== "boolean")
+  .map((num) => Number(num));
+
 // 2.
 function average(arr) {
   let sum = arr.reduce((prev, current) => prev + current, 0);
   return sum / arr.length;
 }
-
 let avg = average(arrNum);
-renderText(arrNum, "vidurkis", avg, "#average");
+//renderText(arrNum, "vidurkis", avg, "#average");
+renderText(goodNums, "vidurkis", avg, "#average");
 // 3.
 function mediana(nums) {
   let arr = nums;
@@ -410,7 +413,7 @@ function numByN(arr, nth) {
   let text = `${nth}-as skaičius`;
   return [result, text];
 }
-let [numnth, text] = numByN(arrNum, 13);
+let [numnth, text] = numByN(arrNum, 2);
 renderText(arrNum, text, numnth, "#nth");
 
 // -------------------------- ForEach metodas
