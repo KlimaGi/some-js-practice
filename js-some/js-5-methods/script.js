@@ -327,60 +327,93 @@ let citiesArr = ["Vln", "Klp", "Kau", "Sl", "Pan"];
 citiesArr.map((city, index) => console.log(index + 1, city));
 
 // UŽDUOTIS (papildoma):
-// 1. Sukurti 10-ies skaičių masyvą.
-let arrNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-// 2. Sukurti funkciją, kuri priima skaičių masyvą ir grąžina jų vidurkį.
+
+let renderText = (arr, text, num, selector) => {
+  let answer = `Skaičių (${arr.join(", ")}) ${text} yra ${num}.`;
+  document.querySelector(selector).textContent = answer;
+};
+
+// 1.
+let arrNum = [21, 2, 7, 54, 15, 6, 27, 38, 92, 10];
+const badNumbers = [
+  22,
+  6,
+  true,
+  58,
+  "77",
+  NaN,
+  32,
+  undefined,
+  7,
+  29,
+  null,
+  105,
+  84,
+];
+const goodNums = badNumbers.filter((num) => Number(num));
+console.log("goodNums", goodNums);
+console.log("typeof num === Number", typeof 7);
+// 2.
 function average(arr) {
   let sum = arr.reduce((prev, current) => prev + current, 0);
   return sum / arr.length;
 }
-console.log(average(arrNum));
-// 2.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) vidurkis yra 15"
+
 let avg = average(arrNum);
-let text = document.querySelector("p");
-text.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) vidurkis yra ${avg}`;
-// 3. Sukurti funkciją, kuri priima skaičių masyvą ir grąžina jų medianą.
-function mediana(arr) {
-  let middle = Math.floor(arr.length / 2);
-  return middle;
+renderText(arrNum, "vidurkis", avg, "#average");
+// 3.
+function mediana(nums) {
+  let arr = nums;
+  arr.sort((a, b) => a - b);
+  let length = arr.length;
+  let middleIndex;
+  let median;
+
+  if (length % 2 === 1) {
+    middleIndex = Math.floor(length / 2);
+    median = arr[middleIndex];
+  } else {
+    let num1 = length / 2;
+    let num2 = num1 - 1;
+    median = (arr[num1] + arr[num2]) / 2;
+  }
+  return median;
 }
 let med = mediana(arrNum);
-// 3.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) mediana yra 15"
-let txtM = document.querySelector("p.mediana");
-txtM.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) mediana yra ${med}`;
-// 4. Sukurti funkciją, kuri priima skaičių masyvą ir grąžina didžiausia jame esantį skaičių.
+renderText(arrNum, "mediana", med, "#mediana");
+// 4.
 function maxnum(arr) {
-  let num = arr.sort((a, b) => a - b).pop();
+  let num = Math.max(...arr);
   return num;
 }
 let num = maxnum(arrNum);
-console.log(num);
-// 4.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) didžiausias skaičius yra 15"
-let maxNumtxt = document.querySelector("p.maxn");
-maxNumtxt.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) didžiausias skaičius yra ${num}`;
-// 5. Sukurti funkciją, kuri priima skaičių masyvą ir grąžina mažiausią jame esantį skaičių.
+renderText(arrNum, "didžiausias skaičius", num, "#maxn");
+
+// 5.
 function minnum(arr) {
-  let num = arr.sort((a, b) => b - a).pop();
+  let num = Math.min(...arr);
   return num;
 }
 let minn = minnum(arrNum);
-console.log(minn);
-// 5.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) mažiausias skaičius yra 1"
-let minNumtxt = document.querySelector("p.minn");
-minNumtxt.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) didžiausias skaičius yra ${minn}`;
-// 6. Sukurti funkciją, kuri priima skaičių masyvą ir grąžina n-tąjį skaičių pagal dydį (skaičiuojant nuo mažiausio iki didžiausio).
-let arry = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-function numByN(arr, nth) {
-  let num = arr.sort((a, b) => a - b);
-  return num[nth - 1];
-}
-let numnth = numByN(arry, 3);
-console.log(numnth);
-// 6.1. Reikšmę išsaugoti ir išvesti į ekraną (HTML elementą) tokiu formatu: „Skaičių (1, 2, 3, 5, 6 ...) trečias skaičius pagal dydį yra 3"
-let nthnum = document.querySelector("p.nth");
-nthnum.innerHTML = `Skaičių (1, 2, 3, 5, 6 ...) trečias skaičius pagal dydį yra ${numnth}`;
+renderText(arrNum, "mažiausias skaičius", minn, "#minn");
 
-// ForEach metodas
+// 6.
+function numByN(arr, nth) {
+  let nums = arr.sort((a, b) => a - b);
+  let nthNumber = nums[nth - 1];
+  let result;
+  if (arr.length > 0 && arr.length > nth) result = nthNumber;
+  else {
+    console.error("Neveikia.");
+    result = "nesamas skaičius";
+  }
+  let text = `${nth}-as skaičius`;
+  return [result, text];
+}
+let [numnth, text] = numByN(arrNum, 13);
+renderText(arrNum, text, numnth, "#nth");
+
+// -------------------------- ForEach metodas
 citiesArr.forEach((city) => {
   console.log("ForEach ciklas: " + city);
 });

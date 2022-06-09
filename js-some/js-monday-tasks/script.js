@@ -133,8 +133,8 @@ console.log(calculator(2, 3, "multi"));
 
 // 6
 let rand1 = () => {
-  let min = Math.ceil(10);
-  let max = Math.floor(1);
+  let min = Math.ceil(1);
+  let max = Math.floor(10);
   let result = Math.floor(Math.random() * (max - min + 1) + min);
   return result;
 };
@@ -217,3 +217,36 @@ btnNot18El.addEventListener("click", () => {
 });
 
 // 8
+const btn1El = document.querySelector("button.btn1");
+const btn2El = document.querySelector("button.btn2");
+const btn3El = document.querySelector("button.btn3");
+
+function generate123() {
+  let min = Math.ceil(1);
+  let max = Math.floor(3);
+  let randomNum = Math.floor(Math.random() * (max - min + 1) + min);
+  return randomNum;
+}
+let num123 = generate123();
+console.log("randomNum", num123);
+
+btn1El.addEventListener("click", () => {
+  if (num123 === 1) alert("Yay");
+  else alert("Nay");
+});
+btn2El.addEventListener("click", () => {
+  if (num123 === 2) alert("Yay");
+  else alert("Nay");
+});
+btn3El.addEventListener("click", () => {
+  if (num123 === 3) alert("Yay");
+  else alert("Nay");
+});
+
+// 9
+
+const dontTxtEl = document.getElementById("output");
+document.body.addEventListener("click", () => {
+  const isButton = event.target.nodeName === "BUTTON";
+  dontTxtEl.innerText = "Neklausote manes";
+});
