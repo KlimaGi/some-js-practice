@@ -21,6 +21,16 @@ function listMoviesD(arr) {
 }
 listMoviesD(moviesD);
 
+for (let movie of moviesD) {
+  console.log("For ... of ciklas: " + movie.name);
+}
+
+// for (let key in studentObj) {
+//   let value = studentObj[key];
+//   console.log(key + ": " + value);
+// }
+// console.log();
+
 console.groupCollapsed("---- objectai");
 
 //   for ... of --- ciklas []
@@ -82,13 +92,59 @@ studentObj.adress.street = "Vilnius st.";
 console.log(studentObj);
 console.groupEnd();
 
-console.group("---- ciklai");
+console.groupCollapsed("---- ciklai");
 
 for (let key in studentObj) {
   let value = studentObj[key];
   console.log(key + ": " + value);
 }
-console.log();
+
+console.groupEnd();
+
+console.group("---- obj task");
+
+let companyObj = new Object();
+
+companyObj["company name"] = "someCompany";
+companyObj.opened = 1974;
+companyObj.companyCode = 7687687677;
+companyObj.employees = 1325;
+companyObj.ceo = "John Doe";
+companyObj.nvo = false;
+companyObj.workingLocation = ["SW", "LT"];
+companyObj.activityAreas = ["it", "some"];
+companyObj.contacts = {};
+companyObj.contacts.phone = "+432352544564";
+companyObj.contacts.email = "soem@email.com";
+companyObj.contacts.adress = {};
+companyObj.contacts.adress.country = "LT";
+companyObj.contacts.adress.city = "Vln";
+companyObj.contacts.adress.street = "Vilnius str.";
+companyObj.contacts.adress.apartment = "12";
+
+companyObj.subsidiary = [];
+companyObj.subsidiary.push({
+  "company name": "otherCompany",
+  opened: 2012,
+  companyCode: 8768789669,
+  employees: 547,
+  ceo: "Zari Deen",
+  nvo: false,
+  workingLocation: ["SW", "LT"],
+  activityAreas: ["it", "some"],
+  contacts: {
+    phone: "+432352544564",
+    email: "soem@email.com",
+    adress: {
+      country: "LT",
+      city: "Vln",
+      street: "Kaunas str",
+      apartment: "34",
+    },
+  },
+});
+
+console.log(companyObj);
 
 console.log();
 console.groupEnd();
