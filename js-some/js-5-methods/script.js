@@ -328,13 +328,9 @@ citiesArr.map((city, index) => console.log(index + 1, city));
 
 // UŽDUOTIS (papildoma):
 
-let renderText = (arr, text, num, selector) => {
-  let answer = `Skaičių (${arr.join(", ")}) ${text} yra ${num}.`;
-  document.querySelector(selector).textContent = answer;
-};
-
 // 1.
 let arrNum = [21, 2, 7, 54, 15, 6, 27, 38, 92, 10];
+
 const badNumbers = [
   22,
   6,
@@ -352,9 +348,18 @@ const badNumbers = [
   "",
   84,
 ];
+
 let goodNums = badNumbers
   .filter((num) => Number(num) && typeof num !== "boolean")
-  .map((num) => Number(num));
+  .map((num) => Number(num))
+  .sort((a, b) => a - b);
+console.log("goodNums", goodNums);
+// [6, 7, 22, 29, 32, 58, 77, 84, 105]
+
+let renderText = (arr, text, num, selector) => {
+  let answer = `Skaičių (${arr.join(", ")}) ${text} yra ${num}.`;
+  document.querySelector(selector).textContent = answer;
+};
 
 // 2.
 function average(arr) {
@@ -362,8 +367,8 @@ function average(arr) {
   return sum / arr.length;
 }
 let avg = average(arrNum);
-//renderText(arrNum, "vidurkis", avg, "#average");
 renderText(goodNums, "vidurkis", avg, "#average");
+
 // 3.
 function mediana(nums) {
   let arr = nums;
