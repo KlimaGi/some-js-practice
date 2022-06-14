@@ -1,0 +1,18 @@
+.box {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px grey;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 70%;
+  margin: 1rem;
+}
+li {
+  padding: 0.5rem 2rem;
+  list-style: none;
+}
