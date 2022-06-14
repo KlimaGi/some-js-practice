@@ -207,7 +207,6 @@ attractionList.forEach((list) => {
 });
 
 let itemEven = document.querySelectorAll(".city-item");
-
 itemEven.forEach((item) => (item.style.width = "45%"));
 if (cities.length % 2 !== 0) {
   let lastItem = document.querySelectorAll(".city-item:last-child");

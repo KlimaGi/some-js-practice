@@ -31,7 +31,7 @@ for (let movie of moviesD) {
 // }
 // console.log();
 
-console.group("---- objectai");
+console.log("---- objectai");
 
 //   for ... of --- ciklas []
 let students = ["David", "Zoe", "Lily", "Oscar"];
@@ -134,16 +134,16 @@ studentObj.changeActivity();
 console.log("-----change", studentObj.active);
 
 console.log(studentObj);
-console.groupEnd();
+console.log();
 
-console.groupCollapsed("---- ciklai");
+console.log("---- ciklai");
 
 for (let key in studentObj) {
   let value = studentObj[key];
   console.log(key + ": " + value);
 }
 
-console.groupCollapsed("---- obj task");
+console.log("---- obj task");
 
 let companyObj = new Object();
 
@@ -194,7 +194,7 @@ let company2 = {
     this.nvo = false;
   },
   switchNVO() {
-    this.NVO = !this.NVO;
+    this.nvo = !this.nvo;
   },
   getWorkingLocations() {
     let outputText = this.workingLocation.join(", ") + ".";
@@ -207,7 +207,7 @@ let company2 = {
     return outputText + ".";
   },
   addWorkingLocation(location) {
-    this.activityAreas.push(location);
+    this.workingLocation.push(location);
   },
   addActivityArea() {
     this.activityAreas.push(area);
@@ -228,7 +228,6 @@ let company2 = {
 companyObj.subsidiaries.push(company2);
 companyObj.subsidiaries.push(company2);
 
-console.log();
 // 5. Sukurti funkciją, kuri sukuria adreso string'ą: „Vilniaus st. 15, Vilnius, Lithuania.".
 
 companyObj.getAdress = function () {
@@ -242,18 +241,28 @@ console.log(company2.contacts.getAdress());
 
 // 6.1. Pakeičia NVO statusą į true.
 console.log(company2.nvo);
+console.log(companyObj.nvo);
 companyObj.setNVO = function () {
   this.nvo = true;
 };
+companyObj.setNVO();
+console.log(companyObj.nvo);
+company2.setNVO();
 console.log(company2.nvo);
 // 6.2. Pakeičia NVO statusą į false.
+companyObj.setNonNVO = function () {
+  this.nvo = false;
+};
 company2.setNonNVO();
+companyObj.setNonNVO();
 console.log(company2.nvo);
+console.log(companyObj.nvo);
 // 6.3. BONUS, sukurti funkciją, kuri keičia NVO statusą iš true į false ir iš false į true.
-company2.switchNVO = function () {
+companyObj.switchNVO = function () {
   this.nvo = !this.nvo;
 };
-console.log(company2.nvo);
+companyObj.switchNVO();
+console.log(companyObj.nvo);
 company2.switchNVO();
 console.log(company2.nvo);
 // 7. Sukurti funkcijas, kurios grąžina:
@@ -262,25 +271,27 @@ companyObj.getWorkingLocations = function () {
   let outputText = this.workingLocation.join(", ") + ".";
   return outputText;
 };
-
 console.log(companyObj.getWorkingLocations());
 console.log(company2.getWorkingLocations());
 
 // 7.2. Veiklos sritis, kuriose veikia įmonė į vieną string'ą.
-company2.getActivityAreas = function () {
+companyObj.getActivityAreas = function () {
   let outputText = this.activityAreas.reduce(
     (all, current) => all + ", " + current
   );
   return outputText + ".";
 };
+console.log(companyObj.getActivityAreas());
 console.log(company2.getActivityAreas());
 // 8. Sukurti funkcijas, kurios prideda:
 // 8.1. Naują veiklos šalį prie šalių masyvo.
-company2.addWorkingLocation = function (location) {
+companyObj.addWorkingLocation = function (location) {
   console.log("location", location);
   this.workingLocation.push(location);
 };
+companyObj.addWorkingLocation("SP");
 company2.addWorkingLocation("GR");
+console.log(companyObj.workingLocation);
 console.log(company2.workingLocation);
 // 8.2. Naują veiklos rūšį prie veiklų masyvo.
 // 9. Sukurti funkcijas, kurios pašalina:
