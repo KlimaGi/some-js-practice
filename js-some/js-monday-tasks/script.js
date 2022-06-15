@@ -250,3 +250,12 @@ document.body.addEventListener("click", () => {
   const isButton = event.target.nodeName === "BUTTON";
   dontTxtEl.innerText = "Neklausote manes";
 });
+
+// 10
+let h1 = document.querySelector("h1");
+h1.style.height = "50vh";
+h1.style.lineHeight = "50vh";
+h1.style.border = "1px solid palevioletred";
+document.body.addEventListener("mousemove", () => {
+  h1.textContent = "Kiek galima neklausyti?!";
+});
