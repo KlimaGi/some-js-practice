@@ -158,12 +158,6 @@ buttonMinus2El.addEventListener("click", () => {
   checkData();
 });
 
-buttonResetEl.addEventListener("click", () => {
-  h3El.textContent = 1;
-  h3El.style.color = "crimson";
-  checkData();
-});
-
 function checkData() {
   let currentNum = h3El.textContent;
 
@@ -189,11 +183,34 @@ function changeColor() {
 }
 
 // 13. Sukurti naują elementą (h4) ir jį pridėti į „numbers" elemento pabaigą.
+let h4El = document.createElement("h4");
+let ulEl = document.createElement("ul");
+numbersEl.append(h4El, ulEl);
 // 13.1. Šio elemento tekstas turėtų būti „Balai:"
+h4El.textContent = "Points";
 // 14. Sukurti naują elementą (ul) ir jį pridėti į „numbers" elemento pabaigą.
+
 // 14.1. Sukurti naują mygtuką, kurio teksta būtų „Įrašyti balą".
+let buttonWrite = document.createElement("button");
+buttonWrite.textContent = "write points";
+numbersEl.append(buttonWrite);
 // 14.2. Paspaudus šį mygtuką, reikia paimti reikšmę iš h3 elemento ir sukurti naują li elementą bei jį append'inti prie ul elemento.
+buttonWrite.addEventListener("click", () => {
+  let h3text = h3El.textContent;
+  let newLi = document.createElement("li");
+  newLi.textContent = h3text;
+  ulEl.append(newLi);
+});
 // 14.3. Nuresetinti skaičiuoklę.
+buttonResetEl.addEventListener("click", () => {
+  h3El.textContent = 1;
+  h3El.style.color = "crimson";
+
+  let liAll = document.querySelectorAll("li");
+  liAll.forEach((el) => el.remove());
+
+  checkData();
+});
 
 // ---- papildoma uzduotis po CAO
 // Sukurti kontaktų formą. Ją pridavus (submit):
