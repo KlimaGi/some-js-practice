@@ -209,7 +209,7 @@ let company2 = {
   addWorkingLocation(location) {
     this.workingLocation.push(location);
   },
-  addActivityArea() {
+  addActivityArea(area) {
     this.activityAreas.push(area);
   },
   removeWorkingLocation(locationToRemove) {
@@ -294,10 +294,31 @@ company2.addWorkingLocation("GR");
 console.log(companyObj.workingLocation);
 console.log(company2.workingLocation);
 // 8.2. Naują veiklos rūšį prie veiklų masyvo.
+companyObj.addActivityArea = function (area) {
+  this.activityAreas.push(area);
+};
+console.log(companyObj.activityAreas);
+companyObj.addActivityArea("other");
+console.log(companyObj.activityAreas);
+console.log(company2.activityAreas);
+company2.addActivityArea("another");
+console.log(company2.activityAreas);
 // 9. Sukurti funkcijas, kurios pašalina:
 // 9.1. Veiklos šalį iš šalių masyvo.
-// 9.2. Veiklos rūšį iš vEiklų masyvo.
-company2.removeActivityArea = function (areaToRemove) {
+companyObj.removeWorkingLocation = function (locationToRemove) {
+  let updatedWorkingLocations = this.workingLocation.filter(
+    (loc) => loc !== locationToRemove
+  );
+  this.workingLocation = updatedWorkingLocations;
+};
+console.log(companyObj.workingLocation);
+companyObj.removeWorkingLocation("SP");
+console.log(companyObj.workingLocation);
+console.log(company2.workingLocation);
+company2.removeWorkingLocation("GR");
+console.log(company2.workingLocation);
+// 9.2. Veiklos rūšį iš veiklų masyvo.
+companyObj.removeActivityArea = function (areaToRemove) {
   console.log(areaToRemove);
   console.log(this.activityAreas);
 
@@ -305,8 +326,12 @@ company2.removeActivityArea = function (areaToRemove) {
     (area) => area.toLowerCase() !== areaToRemove.toLowerCase()
   );
 };
+console.log(companyObj.activityAreas);
+companyObj.removeActivityArea("some");
+console.log(companyObj.activityAreas);
+
 console.log(company2.activityAreas);
-company2.removeActivityArea("some");
+company2.removeActivityArea("other");
 console.log(company2.activityAreas);
 
 console.log(company2["company name"]);
@@ -317,78 +342,71 @@ const companyPhoneEl = document.querySelector(".company-phone");
 const companyInfoEl = document.querySelector(".company-info");
 
 console.dir(companyNameEl);
-companyNameEl.textContent = company2["company name"];
+companyNameEl.textContent = companyObj["company name"];
 companyNameEl.style.textTransform = "uppercase";
 companyNameEl.style.border = "2px solid green";
 companyNameEl.style.padding = "5px 10px";
 
-companyAdressEl.textContent = "Adress: " + company2.contacts.getAdress();
+companyAdressEl.textContent = "Adress: " + companyObj.getAdress();
 
-companyEmailEl.innerHTML = `Email: <a href="mailto:${company2.contacts.email}">${company2.contacts.email}</a>`;
+companyEmailEl.innerHTML = `Email: <a href="mailto:${companyObj.contacts.email}">${companyObj.contacts.email}</a>`;
 
-//company2.contacts.phone = "";
-
-if (company2.contacts.phone) {
-  companyPhoneEl.innerHTML = `Phone: <a href="tel:${company2.contacts.phone}">${company2.contacts.phone}</a>`;
+if (companyObj.contacts.phone) {
+  companyPhoneEl.innerHTML = `Phone: <a href="tel:${companyObj.contacts.phone}">${companyObj.contacts.phone}</a>`;
 } else {
-  companyPhoneEl.textContent = "The phone number is not specified";
+  companyPhoneEl.textContent = "The phone number is not specified.";
 }
 
 // -----------------
-if (company2.opened) {
-  companyInfoEl.innerHTML = `<li>Atidarymo metai: ${company2.opened} m.</li>`;
+if (companyObj.opened) {
+  companyInfoEl.innerHTML = `<li>Opened year: ${companyObj.opened} m.</li>`;
 }
 
-if (company2.companyCode)
-  companyInfoEl.innerHTML += `<li>Company code: ${company2.companyCode} m.</li>`;
+if (companyObj.companyCode)
+  companyInfoEl.innerHTML += `<li>Company code: ${companyObj.companyCode}</li>`;
 
-if (company2.employees)
-  companyInfoEl.innerHTML += `<li>Employess: ${company2.employees} m.</li>`;
+if (companyObj.employees)
+  companyInfoEl.innerHTML += `<li>Employess number: ${companyObj.employees}</li>`;
 
-console.log(company2.workingLocation);
+if (companyObj.ceo)
+  companyInfoEl.innerHTML += `<li>Company CEO: ${companyObj.ceo}</li>`;
+
+companyObj.setNonNVO();
+console.log(companyObj.nvo);
+if (!companyObj.nvo)
+  companyInfoEl.innerHTML += `<li>Governmental organization.</li>`;
+
+console.log(companyObj.workingLocation);
 
 if (company2.workingLocation.length > 0) {
   let workingLocationsTitleEl = document.querySelector(".working-locations h2");
   let workingLocationsListEl = document.querySelector(".working-locations ul");
   workingLocationsTitleEl.textContent = "Company working locations: ";
 
-  company2.workingLocation.map(
+  companyObj.workingLocation.map(
     (location) => (workingLocationsListEl.innerHTML += `<li>${location}</li>`)
   );
-
-  // let activitiesList = company2.workingLocation.reduce((list, current) => {
+  // let locationsList = companyObj.workingLocation.reduce((list, current) => {
   //   return list + `<li>${current}</li>`;
   // }, "");
-  // console.log(activitiesList);
+  // console.log(locationsList);
 
-  // workingLocationsListEl.innerHTML = activitiesList;
+  // workingLocationsListEl.innerHTML = locationsList;
 }
 
-console.log(company2.activityAreas);
-if (company2.activityAreas.length > 0) {
-  let activityAreasEl = document.querySelector(".activity-areas");
-  activityAreasEl.innerHTML = `<h2>Company activity areas</h2>`;
+// console.log(companyObj.activityAreas);
+// if (companyObj.activityAreas.length > 0) {
+//   let activityAreasEl = document.querySelector(".activity-areas");
+//   activityAreasEl.innerHTML = `<h2>Company activity areas: </h2>`;
 
-  let activityList = company2.activityAreas
-    .map((area) => `<li>${area}</li>`)
-    .join(" ");
+//   let activityList = companyObj.activityAreas
+//     .map((area) => `<li>${area}</li>`)
+//     .join(" ");
 
-  activityAreasEl.innerHTML += `<ul>${activityList}</ul>`;
-}
-
-console.log(company2.subsidiaries);
-
-// if (companyObj.subsidiaries.length > 0) {
-//   let subsidiariesWrapperEl = document.querySelector(".subsidiaries-wrapper");
-
-//   subsidiariesWrapperEl.innerHTML = "<h2>Subsidiary companies</h2>";
-
-//   let subsidiaryList = companyObj.subsidiaries
-//     .map((subCompany) => `<li>${subCompany["company name"]}</li>`)
-//     .join("");
-
-//   subsidiariesWrapperEl.innerHTML += `<ul>${subsidiaryList}</ul>`;
+//   activityAreasEl.innerHTML += `<ul>${activityList}</ul>`;
 // }
+
+console.log(companyObj.subsidiaries);
 
 function renderList(dataAray, elementClass, title) {
   if (dataAray.length > 0) {
@@ -403,7 +421,32 @@ function renderList(dataAray, elementClass, title) {
 }
 
 renderList(
-  company2.workingLocation,
+  companyObj.workingLocation,
   ".working-locations-2",
-  "Company activity areas"
+  "Company working locations"
 );
+
+renderList(
+  companyObj.activityAreas,
+  ".activity-areas",
+  "Company activity areas..."
+);
+
+if (companyObj.subsidiaries.length > 0) {
+  let subsidiariesWrapperEl = document.querySelector(".subsidiaries-wrapper");
+
+  // subsidiariesWrapperEl.innerHTML = "<h2>Subsidiary companies</h2>";
+
+  // let subsidiaryList = companyObj.subsidiaries
+  //   .map((subCompany) => `<li>${subCompany["company name"]}</li>`)
+  //   .join("");
+
+  // subsidiariesWrapperEl.innerHTML += `<ul>${subsidiaryList}</ul>`;
+
+  let subsidiaryList = companyObj.subsidiaries
+    .map((subCompany) => `<li>${subCompany["company name"]}</li>`)
+    .join("");
+  subsidiariesWrapperEl.innerHTML = `<h2>Subsidiary companies:</h2>
+    <ul>${subsidiaryList}</ul>
+    `;
+}

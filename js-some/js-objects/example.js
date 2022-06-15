@@ -207,21 +207,26 @@ companyName.style.textTransform = "uppercase";
 companyName.style.border = "2px solid green";
 companyName.style.padding = "5px 10px";
 companyAddress.textContent = "Adresas: " + company1.getAddress();
+
 companyEmail.innerHTML = `El. paštas: <a href="mailto:${company1.contacts.email}">${company1.contacts.email}</a>`;
+
 if (company1.contacts.phone) {
   companyPhone.innerHTML = `Telefono numeris: <a href="tel:${company1.contacts.phone}">${company1.contacts.phone}</a>`;
 } else {
   companyPhone.textContent = "Telefono numeris nenurodytas.";
 }
+
 if (company1.opened) {
   companyInfo.innerHTML += `<li>Atidarymo metai: ${company1.opened} m.</li>`;
 }
+
 if (company1.companyCode) {
   companyInfo.innerHTML += `<li>Įmonės kodas: ${company1.companyCode}</li>`;
 }
 if (company1.employees) {
   companyInfo.innerHTML += `<li>Darbuotojų skaičius: ${company1.employees}</li>`;
 }
+
 if (company1.ceo) {
   companyInfo.innerHTML += `<li>Įmonės vadovas: ${company1.ceo}</li>`;
 }
@@ -262,9 +267,13 @@ renderList(
 renderList(company1.activityAreas, ".activity-areas", "Įmonės veiklos sritys:");
 if (company1.subsidiaries.length > 0) {
   let subsidiariesWrapper = document.querySelector(".subsidiaries-wrapper");
+
   // subsidiariesWrapper.innerHTML = '<h2>Dukterinės įmonės:</h2>';
+
   // let subsidiaryList = company1.subsidiaries.map(subsidiaryCompany => '<li>' + subsidiaryCompany['company name'] + '</li>').join('');
+
   // subsidiariesWrapper.innerHTML += `<ul>${subsidiaryList}</ul>`;
+
   let subsidiaryList = company1.subsidiaries
     .map(
       (subsidiaryCompany) =>
