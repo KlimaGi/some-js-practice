@@ -74,3 +74,141 @@ link.style = `background: green;
               font-size: 25px;
               display: inline-block;
               padding: 10px;`;
+
+console.log("-----> dom");
+
+const h1 = document.querySelector("h1");
+const h2 = document.querySelector("h2");
+const h3 = document.querySelector("h3");
+const h4 = document.querySelector("h4");
+const h5 = document.querySelector("h5");
+
+h1.addEventListener("click", () => {
+  h1.style.color = "seagreen";
+  h1.style.backgroundColor = "pink";
+});
+
+h2.addEventListener("click", () => {
+  h2.style.fontSize = "50px";
+});
+
+//h3.addEventListener('click', ())//
+
+function changeHeaderBorder() {
+  h1.style.border = "2px solid purple";
+  h5.style.border = "2px solid purple";
+  h2.style.fontSize = "15px";
+}
+
+h3.addEventListener("click", changeHeaderBorder);
+h4.addEventListener("click", changeHeaderBorder);
+
+// ----- dom
+let numbersEl = document.querySelector("#numbers");
+let h3El = document.createElement("h3");
+let buttonPlusEl = document.createElement("button");
+let buttonMinusEl = document.createElement("button");
+let buttonResetEl = document.createElement("button");
+let buttonMinus2El = document.createElement("button");
+let buttonPlus2El = document.createElement("button");
+numbersEl.append(
+  h3El,
+  buttonPlusEl,
+  buttonMinusEl,
+  buttonResetEl,
+  buttonMinus2El,
+  buttonPlus2El
+);
+
+h3El.textContent = 0;
+buttonPlusEl.textContent = "+";
+buttonMinusEl.textContent = "-";
+buttonResetEl.textContent = "reset";
+buttonMinus2El.textContent = "-2";
+buttonPlus2El.textContent = "+2";
+
+buttonMinusEl.setAttribute("disabled", true);
+buttonMinus2El.setAttribute("disabled", true);
+
+buttonPlusEl.addEventListener("click", () => {
+  let num = Number(h3El.textContent);
+  num++;
+  h3El.textContent = num;
+  checkData();
+});
+
+buttonMinusEl.addEventListener("click", () => {
+  let num = Number(h3El.textContent);
+  num--;
+  h3El.textContent = num;
+  checkData();
+});
+
+buttonPlus2El.addEventListener("click", () => {
+  let num = Number(h3El.textContent);
+  num += 2;
+  h3El.textContent = num;
+  checkData();
+});
+
+buttonMinus2El.addEventListener("click", () => {
+  let num = Number(h3El.textContent);
+  num -= 2;
+  h3El.textContent = num;
+  checkData();
+});
+
+buttonResetEl.addEventListener("click", () => {
+  h3El.textContent = 1;
+  h3El.style.color = "crimson";
+  checkData();
+});
+
+function checkData() {
+  let currentNum = h3El.textContent;
+
+  if (currentNum < 9) buttonPlusEl.removeAttribute("disabled");
+  else buttonPlusEl.setAttribute("disabled", true);
+
+  if (currentNum < 8) buttonPlus2El.removeAttribute("disabled");
+  else buttonPlus2El.setAttribute("disabled", true);
+
+  if (currentNum > 1) buttonMinusEl.removeAttribute("disabled");
+  else buttonMinusEl.setAttribute("disabled", true);
+
+  if (currentNum > 2) buttonMinus2El.removeAttribute("disabled");
+  else buttonMinus2El.setAttribute("disabled", true);
+
+  changeColor();
+}
+
+function changeColor() {
+  let currentNum = h3El.textContent;
+  if (currentNum >= 5) h3El.style.color = "green";
+  else if (currentNum < 5) h3El.style.color = "crimson";
+}
+
+// 13. Sukurti naują elementą (h4) ir jį pridėti į „numbers" elemento pabaigą.
+// 13.1. Šio elemento tekstas turėtų būti „Balai:"
+// 14. Sukurti naują elementą (ul) ir jį pridėti į „numbers" elemento pabaigą.
+// 14.1. Sukurti naują mygtuką, kurio teksta būtų „Įrašyti balą".
+// 14.2. Paspaudus šį mygtuką, reikia paimti reikšmę iš h3 elemento ir sukurti naują li elementą bei jį append'inti prie ul elemento.
+// 14.3. Nuresetinti skaičiuoklę.
+
+// ---- papildoma uzduotis po CAO
+// Sukurti kontaktų formą. Ją pridavus (submit):
+// 1. Kontaktų forma turi išsivalyti.
+// 3. Kontaktų formoje turi būti šie laukeliai:
+// 1. Tekstinis laukelis vardui (privalomas).
+// 2. Tekstinis laukelis pavardei (privalomas).
+// 3. Skaičiaus laukelis amžiui (privalomas).
+// 4. Laukelis įvesti telefono numerį (neprivalomas).
+// 5. Laukelis įvesti el. paštą (privalomas).
+// 6. Range tipo laukelis, kuris skirtas įvertinti savo IT žinias nuo 1 iki 10. Galimas vertinimas tik sveikiems skaičiams.
+// 7. Radio tipo laukeliai, kuriuose pasirenkamas grupės numeris. Turi būti galimybė pasirinkti grupes nuo TYPE 1gr. iki TYPE 15gr.
+// 4. Šalia kiekvieno įvesties (input) elemento, pridėti label elementą, kuris žymi laukelio pavadinimą.
+
+// ANTRA DALIS:
+// 1. Sukurti div elementą, kuris turės id „students-list".
+// 2. Kiekvieną kartą pridavus formą (submit), turi būti sukurtas naujas div elementas su klase „student-item" ir pridedamas į „students-list" elemento pradžią.
+// 3. Duomenys apie studentą turi būti įdėti į „student-item" elementą.
