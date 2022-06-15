@@ -117,11 +117,11 @@ let cities = [
 
 const citiesContainerEl = document.querySelector("#cities-container");
 citiesContainerEl.style = `
-width: 100vw;
+width: 100%;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
-border: 1px solid palevioletred;
+margin: 0;
 `;
 
 console.log(cities);
@@ -234,27 +234,3 @@ all.style = `
 `;
 let pageTitle = document.querySelector("main h2");
 pageTitle.style.padding = "0 2.1rem";
-
-let box = document.querySelectorAll(".box");
-// box.forEach((item) => {
-//   item.style = `margin: 0.5rem;
-//         padding: 0.5rem 1rem;
-//         box-sizing: border-box;
-//         border-radius: 3px;
-//         box-shadow: 2px 2px 5px grey;
-// `;
-// });
-
-// let ulEl = document.querySelector("ul");
-// ulEl.style = `display: flex;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   width: 70%;
-//   margin: 1rem;`;
-
-// let liEl = document.querySelectorAll("li.li-style");
-// liEl.forEach((item) => {
-//   item.style = `padding: 0.5rem 2rem;
-//                 list-style: none;
-//   `;
-// });
