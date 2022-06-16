@@ -72,7 +72,7 @@ form5El.addEventListener("submit", showArmyText);
 
 function showArmyText(event) {
   event.preventDefault();
-  let age = event.target.elements.age.value;
+  let age = Number(event.target.elements.age.value);
   let crime = event.target.elements.criminal.value;
   let needArmy = age > 18 && age < 30 && crime === "notcrime" ? true : false;
   console.log(crime);
@@ -81,3 +81,21 @@ function showArmyText(event) {
     : "You don't need to go to army.";
   armyText.textContent = resultText;
 }
+
+// --- 7 JS formos pratimai
+// 7.1
+let formXbonusEl = document.querySelector("form#xbonus");
+let bonusTxtEl = document.querySelector("#bonusText");
+formXbonusEl.addEventListener("submit", showBonus);
+
+function showBonus(event) {
+  event.preventDefault();
+  let years = Number(event.target.elements.workyears.value);
+  let bonus = 50;
+  if (years > 10) bonus += 50;
+  if (years > 20) bonus += 100;
+  bonusTxtEl.textContent = `Your bonus: ${bonus} eur.`;
+}
+// 7.1.. antras budas
+
+// 7.2
