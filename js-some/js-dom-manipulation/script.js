@@ -160,11 +160,12 @@ buttonMinus2El.addEventListener("click", () => {
 
 function checkData() {
   let currentNum = h3El.textContent;
+  numInputEl.value = currentNum;
 
-  if (currentNum < 9) buttonPlusEl.removeAttribute("disabled");
+  if (currentNum < 10) buttonPlusEl.removeAttribute("disabled");
   else buttonPlusEl.setAttribute("disabled", true);
 
-  if (currentNum < 8) buttonPlus2El.removeAttribute("disabled");
+  if (currentNum < 9) buttonPlus2El.removeAttribute("disabled");
   else buttonPlus2El.setAttribute("disabled", true);
 
   if (currentNum > 1) buttonMinusEl.removeAttribute("disabled");
@@ -179,7 +180,7 @@ function checkData() {
 function changeColor() {
   let currentNum = h3El.textContent;
   if (currentNum >= 5) h3El.style.color = "green";
-  else if (currentNum < 5) h3El.style.color = "crimson";
+  else h3El.style.color = "crimson";
 }
 
 // 13. Sukurti naują elementą (h4) ir jį pridėti į „numbers" elemento pabaigą.
@@ -199,16 +200,46 @@ buttonWrite.addEventListener("click", () => {
   let h3text = h3El.textContent;
   let newLi = document.createElement("li");
   newLi.textContent = h3text;
-  ulEl.append(newLi);
+
+  if (h3text >= 5) newLi.style.color = "green";
+  else newLi.style.color = "crimson";
+
+  ulEl.prepend(newLi);
+
+  newLi.addEventListener("click", () => {
+    newLi.remove();
+  });
 });
 // 14.3. Nuresetinti skaičiuoklę.
 buttonResetEl.addEventListener("click", () => {
-  h3El.textContent = 1;
+  //h3El.textContent = 1;
   h3El.style.color = "crimson";
 
-  let liAll = document.querySelectorAll("li");
-  liAll.forEach((el) => el.remove());
+  // let liAll = document.querySelectorAll("li");
+  // liAll.forEach((el) => el.remove());
 
+  resetForm();
+});
+
+function resetForm() {
+  h3El.textContent = 1;
+  numInputEl.value = 1;
+  checkData();
+}
+
+// document.querySelector("ul li").forEach((li) => {
+//   li.addEventListener("click", () => li.remove());
+// });
+
+// 11. sukurt input elementa
+let numInputEl = document.querySelector("input");
+numInputEl.setAttribute("type", "number");
+numInputEl.setAttribute("value", "1");
+numInputEl.setAttribute("min", "1");
+numInputEl.setAttribute("max", "10");
+
+numInputEl.addEventListener("change", () => {
+  h3El.textContent = numInputEl.value;
   checkData();
 });
 
