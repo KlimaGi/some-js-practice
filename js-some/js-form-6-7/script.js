@@ -96,6 +96,78 @@ function showBonus(event) {
   if (years > 20) bonus += 100;
   bonusTxtEl.textContent = `Your bonus: ${bonus} eur.`;
 }
-// 7.1.. antras budas
 
 // 7.2
+let formLeatYear = document.querySelector("#leap");
+let yearTextEl = document.querySelector("#yeartext");
+
+formLeatYear.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let year = Number(event.target.elements.inputYear.value);
+  let resultLeap = false;
+  if (year % 4 === 0) resultLeap = true;
+  if (year % 100 === 0 && year % 400 === 0) resultLeap = true;
+  let resultText = resultLeap ? "is" : "is not";
+  let text = `${year} ${resultText} leap year`;
+  yearTextEl.textContent = text;
+  event.target.reset();
+});
+
+// 7.3
+let celciusToFarhForm = document.querySelector("#celcToFar");
+let farenhText = document.querySelector("#farenh");
+
+celciusToFarhForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let celcius = Number(event.target.elements.celc.value);
+  let farenheit = celcius * 1.8 + 32;
+  farenhText.textContent = farenheit.toFixed(1);
+});
+
+// 7.4
+let agreeEmailForm = document.querySelector("#agree");
+let resultText = document.querySelector("#resultEmailText");
+
+agreeEmailForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let emailTxt = event.target.elements.email.value;
+  let didAgree = document.getElementById("checked").checked; //true | false
+  let result = didAgree
+    ? `Email ${emailTxt} successfully registered`
+    : "Registration failed";
+  resultText.textContent = result;
+  event.target.reset();
+});
+
+// 7.5
+let wordCountForm = document.querySelector("#nameCount");
+
+wordCountForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let word = event.target.elements.word.value;
+  let count = event.target.elements.number.value;
+  let resultList = document.querySelector("#wordCountList");
+
+  for (let i = count; i > 0; i--) {
+    let wordItem = document.createElement("li");
+    wordItem.textContent = word;
+    resultList.append(wordItem);
+  }
+});
+// 7.6
+let classicForm = document.querySelector("#loopForm");
+
+classicForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let count = event.target.elements.number.value;
+  let resultClassic = document.querySelector("#result");
+
+  for (let i = 1; i <= count; i++) {
+    let line = document.createElement("p");
+    for (let j = 1; j <= i; j++) {
+      line.textContent += "*";
+    }
+    resultClassic.append(line);
+  }
+  event.target.reset();
+});
