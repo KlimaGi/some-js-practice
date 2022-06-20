@@ -171,3 +171,22 @@ classicForm.addEventListener("submit", (event) => {
   }
   event.target.reset();
 });
+
+// 7.6 **cos
+let classicFormCos = document.querySelector("#loopFormCos");
+
+classicFormCos.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let count = event.target.elements.number.value;
+  let resultCos = document.querySelector("#resultCos");
+  let x = 0;
+  for (let i = 1; i <= count; i++) {
+    let line = document.createElement("p");
+    let c = ".";
+    x = 60 - Math.floor(Math.sin(i * 0.2) * 40);
+    line.textContent = c.repeat(Number(x)) + "|*";
+    console.log(x);
+    resultCos.append(line);
+  }
+  event.target.reset();
+});
