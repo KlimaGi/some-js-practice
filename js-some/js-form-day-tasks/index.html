@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS form day tasks</title>
+  <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -22,34 +23,35 @@
   </form> -->
 
 <form >
-  <div>
+  <div id="name">
     <label for="student-name">Name</label>
-    <input type="text" name="name" id="student-name" placeholder="Enter your name" class="required">
+    <input type="text" name="name" id="student-name" placeholder="Enter your name" class="required" value="Name">
   </div>
   
   <div>
     <label for="student-surname">Surname</label>
-    <input type="text" name="surname" id="student-surname" placeholder="Enter your surname" >
+    <input type="text" name="surname" id="student-surname" placeholder="Enter your surname" class="required" value="Sur">
   </div>
   
   <div>
     <label for="student-age">Age</label>
-    <input type="number" name="age" id="student-age" placeholder="Enter your age" min="18" max="120" >
+    <input type="number" name="age" id="student-age" placeholder="Enter your age" min="18" max="120" class="required" value="31">
   </div>
   
   <div>
     <label for="student-phone">Phone</label>
-    <input type="tel" name="phone" id="student-phone" placeholder="Enter your phone" required> 
+    <input type="tel" name="phone" id="student-phone" placeholder="Enter your phone" class="required" value="65857655585"> 
   </div>
   
-  <div>
+  <div id="email">
     <label for="student-email">Email</label>
-    <input type="email" name="email" id="student-email" placeholder="Enter your email" required>
+    <input type="email" name="email" id="student-email" placeholder="Enter your email" class="required" value="ted@ted.com"
+    >
   </div>
   
   <div>
     <label for="student-it-knowledge">It knowledge</label>
-    <input type="range" name="it-knowledge" id="student-it-knowledge" min="1" max="10" value="5" step="1">
+    <input type="range" name="it-knowledge" id="student-it-knowledge" min="1" max="10" value="5" step="1" class="required">
   <output id="it-knowledge-output">5</output>
   </div>
   
