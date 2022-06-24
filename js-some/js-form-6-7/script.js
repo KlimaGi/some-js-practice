@@ -270,3 +270,17 @@ function showBiggerNumber(event) {
   else alert(number2nd);
   event.target.reset();
 }
+
+// 8.5
+let guessNumberForm = document.querySelector("#guess-number");
+guessNumberForm.addEventListener("submit", guessNumber);
+
+function guessNumber(event) {
+  event.preventDefault();
+  let guessedNumber = Number(event.target.elements.numberx.value);
+  let randomNumber = Math.floor(Math.random() * 5 + 1);
+  console.log(guessedNumber, randomNumber);
+  if (guessedNumber === randomNumber) alert("Your guess is correct");
+  else alert("Bad guess, try again");
+  event.target.reset();
+}
