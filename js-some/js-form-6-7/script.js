@@ -23,11 +23,11 @@ function alertName(event) {
 
 // 2
 let form2El = document.querySelector("form#form-2");
-let ageEl = document.querySelector("h2#age");
 form2El.addEventListener("submit", showAge);
 
 function showAge(event) {
   event.preventDefault();
+  let ageEl = document.querySelector("h2#age");
   let result = event.target.elements.age.value;
   console.log(result);
   ageEl.textContent = result;
@@ -35,11 +35,11 @@ function showAge(event) {
 
 // 3
 let form3El = document.querySelector("form#form-3");
-let result3El = document.querySelector("#result-3");
 form3El.addEventListener("submit", showResultText);
 
 function showResultText(event) {
   event.preventDefault();
+  let result3El = document.querySelector("#result-3");
   let name = event.target.elements.yourname.value;
   let age = event.target.elements.yourage.value;
   let resultText =
@@ -49,11 +49,11 @@ function showResultText(event) {
 
 // 4.
 let form4El = document.querySelector("form#cinema");
-let cinemaTextEl = document.querySelector("#cinema-text");
 form4El.addEventListener("submit", showCinemaText);
 
 function showCinemaText(event) {
   event.preventDefault();
+  let cinemaTextEl = document.querySelector("#cinema-text");
   let age = Number(event.target.elements.age.value);
   let result;
   let price = 10;
@@ -67,11 +67,11 @@ function showCinemaText(event) {
 
 // 5.
 let form5El = document.querySelector("form#army");
-let armyText = document.querySelector("#army-text");
 form5El.addEventListener("submit", showArmyText);
 
 function showArmyText(event) {
   event.preventDefault();
+  let armyText = document.querySelector("#army-text");
   let age = Number(event.target.elements.age.value);
   let crime = event.target.elements.criminal.value;
   let needArmy = age > 18 && age < 30 && crime === "notcrime" ? true : false;
@@ -85,11 +85,11 @@ function showArmyText(event) {
 // --- 7 JS formos pratimai
 // 7.1
 let formXbonusEl = document.querySelector("form#xbonus");
-let bonusTxtEl = document.querySelector("#bonusText");
 formXbonusEl.addEventListener("submit", showBonus);
 
 function showBonus(event) {
   event.preventDefault();
+  let bonusTxtEl = document.querySelector("#bonusText");
   let years = Number(event.target.elements.workyears.value);
   let bonus = 50;
   if (years > 10) bonus += 50;
@@ -98,10 +98,11 @@ function showBonus(event) {
 }
 
 // 7.2
-let formLeatYear = document.querySelector("#leap");
-let yearTextEl = document.querySelector("#yeartext");
+let formLeapYear = document.querySelector("#leap");
+formLeapYear.addEventListener("submit", leapYear);
 
-formLeatYear.addEventListener("submit", (event) => {
+function leapYear(event) {
+  let yearTextEl = document.querySelector("#yeartext");
   event.preventDefault();
   let year = Number(event.target.elements.inputYear.value);
   let resultLeap = false;
@@ -111,25 +112,27 @@ formLeatYear.addEventListener("submit", (event) => {
   let text = `${year} ${resultText} leap year`;
   yearTextEl.textContent = text;
   event.target.reset();
-});
+}
 
 // 7.3
 let celciusToFarhForm = document.querySelector("#celcToFar");
-let farenhText = document.querySelector("#farenh");
+celciusToFarhForm.addEventListener("submit", celciusToFarenheit);
 
-celciusToFarhForm.addEventListener("submit", (event) => {
+function celciusToFarenheit(event) {
   event.preventDefault();
+  let farenhText = document.querySelector("#farenh");
   let celcius = Number(event.target.elements.celc.value);
   let farenheit = celcius * 1.8 + 32;
   farenhText.textContent = farenheit.toFixed(1);
-});
+}
 
 // 7.4
 let agreeEmailForm = document.querySelector("#agree");
-let resultText = document.querySelector("#resultEmailText");
+agreeEmailForm.addEventListener("submit", getRegistrationResult);
 
-agreeEmailForm.addEventListener("submit", (event) => {
+function getRegistrationResult(event) {
   event.preventDefault();
+  let resultText = document.querySelector("#resultEmailText");
   let emailTxt = event.target.elements.email.value;
   let didAgree = document.getElementById("checked").checked; //true | false
   let result = didAgree
@@ -137,12 +140,13 @@ agreeEmailForm.addEventListener("submit", (event) => {
     : "Registration failed";
   resultText.textContent = result;
   event.target.reset();
-});
+}
 
 // 7.5
 let wordCountForm = document.querySelector("#nameCount");
+wordCountForm.addEventListener("submit", renderWordNTimes);
 
-wordCountForm.addEventListener("submit", (event) => {
+function renderWordNTimes(event) {
   event.preventDefault();
   let word = event.target.elements.word.value;
   let count = event.target.elements.number.value;
@@ -153,11 +157,12 @@ wordCountForm.addEventListener("submit", (event) => {
     wordItem.textContent = word;
     resultList.append(wordItem);
   }
-});
+}
 // 7.6
 let classicForm = document.querySelector("#loopForm");
+classicForm.addEventListener("submit", classicTriangle);
 
-classicForm.addEventListener("submit", (event) => {
+function classicTriangle(event) {
   event.preventDefault();
   let count = event.target.elements.number.value;
   let resultClassic = document.querySelector("#result");
@@ -170,12 +175,13 @@ classicForm.addEventListener("submit", (event) => {
     resultClassic.append(line);
   }
   event.target.reset();
-});
+}
 
 // 7.6 **cos
 let classicFormCos = document.querySelector("#loopFormCos");
+classicFormCos.addEventListener("submit", cosinusLines);
 
-classicFormCos.addEventListener("submit", (event) => {
+function cosinusLines(event) {
   event.preventDefault();
   let count = event.target.elements.number.value;
   let resultCos = document.querySelector("#resultCos");
@@ -189,11 +195,13 @@ classicFormCos.addEventListener("submit", (event) => {
     resultCos.append(line);
   }
   event.target.reset();
-});
+}
 
 // 8.1
 let letterForm = document.querySelector("#letter-L-size");
-letterForm.addEventListener("submit", (event) => {
+letterForm.addEventListener("submit", drawLetterL);
+
+function drawLetterL(event) {
   event.preventDefault();
   let count = event.target.elements.number.value;
   let resultL = document.querySelector("#letter-l");
@@ -209,6 +217,6 @@ letterForm.addEventListener("submit", (event) => {
     }
   }
   event.target.reset();
-});
+}
 
 // 8.2
