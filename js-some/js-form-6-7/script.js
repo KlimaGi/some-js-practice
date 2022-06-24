@@ -198,8 +198,8 @@ function cosinusLines(event) {
 }
 
 // 8.1
-let letterForm = document.querySelector("#letter-L-size");
-letterForm.addEventListener("submit", drawLetterL);
+let letterLForm = document.querySelector("#letter-L-size");
+letterLForm.addEventListener("submit", drawLetterL);
 
 function drawLetterL(event) {
   event.preventDefault();
@@ -220,3 +220,26 @@ function drawLetterL(event) {
 }
 
 // 8.2
+let letterCForm = document.querySelector("#letter-C-size");
+letterCForm.addEventListener("submit", drawLetterC);
+
+function drawLetterC(event) {
+  event.preventDefault();
+  let count = event.target.elements.number.value;
+  console.log("--> c", count);
+  let resultC = document.querySelector("#letter-C");
+
+  for (let i = 0; i < count; i++) {
+    let line = document.createElement("p");
+    line.textContent = "C";
+    if (i === 0 || i === count - 1) {
+      for (let j = 0; j < count - 1; j++) {
+        line.textContent += "C";
+      }
+    }
+    resultC.append(line);
+  }
+  event.target.reset();
+}
+
+// 8.3
