@@ -263,12 +263,17 @@ function showBiggerNumber(event) {
   event.preventDefault();
   let number1st = Number(event.target.elements.firstnumber.value);
   let number2nd = Number(event.target.elements.secondnumber.value);
-  let difference1 = 100 - number1st;
-  let difference2 = 100 - number2nd;
+  findNearest(number1st, number2nd);
 
-  if (difference1 < difference2) alert(number1st);
-  else alert(number2nd);
   event.target.reset();
+}
+
+function findNearest(number1, number2) {
+  let difference1 = 100 - number1;
+  let difference2 = 100 - number2;
+
+  if (difference1 < difference2) alert(number1);
+  else alert(number2);
 }
 
 // 8.5
