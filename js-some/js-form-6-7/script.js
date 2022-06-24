@@ -190,3 +190,25 @@ classicFormCos.addEventListener("submit", (event) => {
   }
   event.target.reset();
 });
+
+// 8.1
+let letterForm = document.querySelector("#letter-L-size");
+letterForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let count = event.target.elements.number.value;
+  let resultL = document.querySelector("#letter-l");
+  for (let i = 0; i < count; i++) {
+    let line = document.createElement("p");
+    line.textContent = "L";
+    resultL.append(line);
+    if (i === count - 1) {
+      for (let j = 0; j < count - 1; j++) {
+        line.textContent += "L";
+      }
+      resultL.append(line);
+    }
+  }
+  event.target.reset();
+});
+
+// 8.2
