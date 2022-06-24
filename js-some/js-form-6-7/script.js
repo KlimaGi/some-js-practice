@@ -243,3 +243,30 @@ function drawLetterC(event) {
 }
 
 // 8.3
+let wordsLineForm = document.querySelector("#words-line");
+wordsLineForm.addEventListener("blur", writeWordsInLine, true);
+
+function writeWordsInLine(event) {
+  event.preventDefault();
+  event.target.style.background = "pink";
+  let word = event.target.value.trim();
+  let resultText = document.querySelector("#words-here");
+  resultText.textContent += `${word}, `;
+  event.target.value = "";
+}
+
+// 8.4
+let biggerNumberForm = document.querySelector("#bigger-number-form");
+biggerNumberForm.addEventListener("submit", showBiggerNumber);
+
+function showBiggerNumber(event) {
+  event.preventDefault();
+  let number1st = Number(event.target.elements.firstnumber.value);
+  let number2nd = Number(event.target.elements.secondnumber.value);
+  let difference1 = 100 - number1st;
+  let difference2 = 100 - number2nd;
+
+  if (difference1 < difference2) alert(number1st);
+  else alert(number2nd);
+  event.target.reset();
+}
