@@ -19,17 +19,50 @@ wordOnClick.addEventListener("click", () => {
 });
 
 // 9.2
+// const clickBtn = document.querySelector("#click");
+// const istop = "position:absolute; top:0; left:0;";
+// const isbottom = "position:absolute; bottom:0; right:0;";
+// clickBtn.style.cssText = istop;
+// let originalPosition = true;
+
+// function changePosition() {
+//   clickBtn.style.cssText = originalPosition ? isbottom : istop;
+//   originalPosition = !originalPosition;
+// }
+
+// clickBtn.addEventListener("click", changePosition);
+
+// 9.3
 const clickBtn = document.querySelector("#click");
-const istop = "position:absolute; top:0; left:0;";
-const isbottom = "position:absolute; bottom:0; right:0;";
-clickBtn.style.cssText = istop;
-let originalPosition = true;
+const topleft = "position:absolute; top:0; left:0;";
+const topright = "position:absolute; top:0; right:0;";
+const bottomright = "position:absolute; bottom:0; right:0;";
+const bottomleft = "position:absolute; bottom:0; left:0;";
+
+clickBtn.style.cssText = topleft;
+let count = 1;
 
 function changePosition() {
-  clickBtn.style.cssText = originalPosition ? isbottom : istop;
-  originalPosition = !originalPosition;
+  count++;
+  switch (count) {
+    case 1:
+      clickBtn.style.cssText = topleft;
+      break;
+    case 2:
+      clickBtn.style.cssText = topright;
+      break;
+    case 3:
+      clickBtn.style.cssText = bottomright;
+      break;
+    case 4:
+      clickBtn.style.cssText = bottomleft;
+      count = 0;
+      break;
+    default:
+      count = 0;
+  }
 }
 
 clickBtn.addEventListener("click", changePosition);
 
-// 9.3
+// 9.4
