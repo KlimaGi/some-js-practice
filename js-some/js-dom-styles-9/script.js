@@ -66,3 +66,11 @@ function changePosition() {
 clickBtn.addEventListener("click", changePosition);
 
 // 9.4
+const inputChangeBackEl = document.querySelector("#change-back");
+inputChangeBackEl.addEventListener("input", (event) => {
+  let word = event.target.value;
+  let backstyle = word.length < 3 ? "floralwhite" : "aliceblue";
+  document.querySelector("main").style.background = backstyle;
+});
+
+// 9.5
