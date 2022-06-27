@@ -86,13 +86,16 @@ function changeColor() {
 
 // 9.6
 const rgbBtnEl = document.querySelector("#random-rgb");
-rgbBtnEl.addEventListener("click", randomColorsRGB);
+rgbBtnEl.addEventListener("click", (event) => {
+  event.target.style.backgroundColor = randomColorRGB();
+});
 
-function randomColorsRGB() {
-  let colorR = Math.floor(Math.random() * 256);
-  let colorG = Math.floor(Math.random() * 256);
-  let colorB = Math.floor(Math.random() * 256);
+function randomColorRGB() {
+  const randomNum = (min, max) =>
+    Math.floor(Math.random() * (max - min + 1) + min);
+  let colorR = randomNum(0, 255);
+  let colorG = randomNum(0, 255);
+  let colorB = randomNum(0, 255);
 
-  const mainEl = document.querySelector("main");
-  mainEl.style.background = `rgb(${colorR}, ${colorG}, ${colorB})`;
+  return `rgb(${colorR}, ${colorG}, ${colorB})`;
 }
