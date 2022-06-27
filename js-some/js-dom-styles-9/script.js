@@ -74,3 +74,25 @@ inputChangeBackEl.addEventListener("input", (event) => {
 });
 
 // 9.5
+const colorBtnEL = document.querySelector("#change-color");
+colorBtnEL.addEventListener("click", changeColor);
+
+function changeColor() {
+  let colors = ["cadetblue", "burlywood", "lightblue", "lightpink"];
+  let randomNum = Math.round(Math.random() * 3);
+  const mainEl = document.querySelector("main");
+  mainEl.style.background = colors[randomNum];
+}
+
+// 9.6
+const rgbBtnEl = document.querySelector("#random-rgb");
+rgbBtnEl.addEventListener("click", randomColorsRGB);
+
+function randomColorsRGB() {
+  let colorR = Math.floor(Math.random() * 256);
+  let colorG = Math.floor(Math.random() * 256);
+  let colorB = Math.floor(Math.random() * 256);
+
+  const mainEl = document.querySelector("main");
+  mainEl.style.background = `rgb(${colorR}, ${colorG}, ${colorB})`;
+}
