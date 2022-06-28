@@ -39,32 +39,50 @@ const topright = "position:absolute; top:0; right:0;";
 const bottomright = "position:absolute; bottom:0; right:0;";
 const bottomleft = "position:absolute; bottom:0; left:0;";
 
-clickBtn.style.cssText = topleft;
-let count = 1;
+// clickBtn.style.cssText = topleft;
+// let count = 10;
 
-function changePosition() {
-  count++;
+// function changePosition() {
+//   count++;
+//   switch (count) {
+//     case 1:
+//       clickBtn.style.cssText = topleft;
+//       break;
+//     case 2:
+//       clickBtn.style.cssText = topright;
+//       break;
+//     case 3:
+//       clickBtn.style.cssText = bottomright;
+//       break;
+//     case 4:
+//       clickBtn.style.cssText = bottomleft;
+//       count = 0;
+//       break;
+//     default:
+//       count = 0;
+//   }
+// }
+
+//clickBtn.addEventListener("click", changePosition);
+//9.3.1
+function changePosition2(count) {
   switch (count) {
     case 1:
-      clickBtn.style.cssText = topleft;
-      break;
+      return [1, topleft];
     case 2:
-      clickBtn.style.cssText = topright;
-      break;
+      return [2, topright];
     case 3:
-      clickBtn.style.cssText = bottomright;
-      break;
+      return [3, bottomright];
     case 4:
-      clickBtn.style.cssText = bottomleft;
-      count = 0;
-      break;
+      return [4, bottomleft];
     default:
-      count = 0;
+      return [1, topleft];
   }
 }
-
-clickBtn.addEventListener("click", changePosition);
-
+clickBtn.addEventListener("click", function () {
+  [count, clickBtn.style.cssText] = changePosition2(count);
+  count++;
+});
 // 9.4
 const inputChangeBackEl = document.querySelector("#change-back");
 inputChangeBackEl.addEventListener("input", (event) => {
