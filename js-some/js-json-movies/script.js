@@ -37,9 +37,13 @@ fetch("movies.json")
       movieTitle.textContent = movie.title;
       movieTitle.classList.add("movie-title");
 
-      let movieGenres = document.createElement("span");
-      //movie.genres.map((genre) => (movieGenres.textContent = genre));
-      movieGenres.textContent = movie.genres[0];
+      let movieGenresList = document.createElement("ul");
+      movieGenresList.classList.add("movies-genres");
+      movie.genres.map((genre) => {
+        let movieGenre = document.createElement("li");
+        movieGenre.textContent = genre;
+        movieGenresList.append(movieGenre);
+      });
 
       let movieRanking = document.createElement("span");
       movieRanking.textContent = movie.review.ranking;
@@ -50,12 +54,27 @@ fetch("movies.json")
       movieViews.textContent = count;
       movieViews.classList.add("views");
 
+      let movieSummary = document.createElement("p");
+      movieSummary.textContent = movie.summary;
+
+      let movieDirector = document.createElement("p");
+      let isPlural = movie.director.length && "s";
+      let directors = movie.director.join(", ");
+      movieDirector.textContent = `Director${isPlural}: ${directors}`;
+
+      let movieCast = document.createElement("p");
+      let actors = movie.cast.join(", ");
+      movieCast.textContent = `Stars: ${actors}`;
+
       moviesList.append(movieItem);
       movieItem.append(movieTitle);
-      movieItem.append(movieGenres);
+      movieItem.append(movieGenresList);
 
       movieItem.append(movieRanking);
       movieItem.append(movieViews);
+      movieItem.append(movieSummary);
+      movieItem.append(movieDirector);
+      movieItem.append(movieCast);
     });
   });
 
