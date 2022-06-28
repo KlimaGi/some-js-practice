@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Zilla+Slab:wght@400;600&display=swap");
+
+:root {
+  --color-dark: #1562a1;
+  --color-blue: #4682b4;
+  --color-light: #7ea1be;
+  --color-gold: #ffd700;
+}
+* {
+  box-sizing: border-box;
+  font-family: "Libre Baskerville", serif;
+  /* font-family: "Zilla Slab", serif; */
+}
+h2 {
+  color: var(--color-blue);
+  text-align: center;
+}
+
+#movies-list {
+  border: 1px solid var(--color-blue);
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.movie-item {
+  color: var(--color-dark);
+  border: 1px solid var(--color-light);
+  padding: 1rem;
+  margin: 1rem;
+  width: 46%;
+}
+
+.movie-title {
+  text-align: center;
+}
+.star::before {
+  font-family: FontAwesome;
+  content: "\f005";
+  padding: 0.3rem;
+  color: var(--color-gold);
+}
+.views {
+  margin: 1rem;
+}
