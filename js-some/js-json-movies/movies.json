@@ -11,7 +11,8 @@
       "Elizabeth Olsen",
       "Chiwetel Ejiofor",
       "Benedict Wong"
-    ]
+    ],
+    "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg"
   },
   {
     "title": "Obi-Wan Kenobi",
@@ -25,7 +26,8 @@
       "Moses Ingram",
       "Vivien Lyra Blair",
       "Hayden Christensen"
-    ]
+    ],
+    "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qJRB789ceLryrLvOKrZqLKr2CGf.jpg"
   },
   {
     "title": "Stranger Things",
@@ -39,7 +41,8 @@
       "Finn Wolfhard",
       "Winona Ryder",
       "David Harbour"
-    ]
+    ],
+    "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uKYUR8GPkKRCksczYDJb3pwZauo.jpg"
   },
   {
     "title": "The Black Phone",
@@ -48,7 +51,13 @@
     "summary": "After being abducted by a child killer and locked in a soundproof basement, a 13-year-old boy starts receiving calls on a disconnected phone from the killer's previous victims.",
     "genres": ["horror"],
     "director": ["Scott Derrickson"],
-    "cast": ["Mason Thames", "Madeleine McGraw", "Ethan Hawke", "Jeremy Davies"]
+    "cast": [
+      "Mason Thames",
+      "Madeleine McGraw",
+      "Ethan Hawke",
+      "Jeremy Davies"
+    ],
+    "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/bxHZpV02OOu9vq3sb3MsOudEnYc.jpg"
   },
   {
     "title": "The Northman",
@@ -62,7 +71,8 @@
       "Nicole Kidman",
       "Claes Bang",
       "Ethan Hawke"
-    ]
+    ],
+    "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zhLKlUaF1SEpO58ppHIAyENkwgw.jpg"
   },
   {
     "title": "Top Gun: Maverick",
@@ -71,7 +81,8 @@
     "summary": "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in r...",
     "genres": ["action", "drama"],
     "director": ["Joseph Kosinski"],
-    "cast": ["Tom Cruise", "Jennifer Connelly", "Miles Teller", "Val Kilmer"]
+    "cast": ["Tom Cruise", "Jennifer Connelly", "Miles Teller", "Val Kilmer"],
+    "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/jeGvNOVMs5QIU1VaoGvnd3gSv0G.jpg"
   },
   {
     "title": "Spider-Man: No Way Home",
@@ -80,7 +91,8 @@
     "summary": "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it trul...",
     "genres": ["action", "adventure", "fantasy"],
     "director": ["Jon Watts"],
-    "cast": ["Tom Holland", "Zendaya", "Benedict Cumberbatch", "Jacob Batalon"]
+    "cast": ["Tom Holland", "Zendaya", "Benedict Cumberbatch", "Jacob Batalon"],
+    "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
   },
   {
     "title": "Hustle",
@@ -94,7 +106,8 @@
       "Queen Latifah",
       "Juancho Hernangomez",
       "Ben Foster"
-    ]
+    ],
+    "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fVf4YHHkRfo1uuljpWBViEGmaUQ.jpg"
   },
   {
     "title": "The Godfather",
@@ -103,7 +116,8 @@
     "summary": "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.",
     "genres": ["crime", "drama"],
     "director": ["Francis Ford Coppola"],
-    "cast": ["Marlon Brando", "Al Pacino", "James Caan", "Diane Keaton"]
+    "cast": ["Marlon Brando", "Al Pacino", "James Caan", "Diane Keaton"],
+    "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eEslKSwcqmiNS6va24Pbxf2UKmJ.jpg"
   },
   {
     "title": "The Shawshank Redemption",
@@ -112,6 +126,7 @@
     "summary": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
     "genres": ["drama"],
     "director": ["Frank Darabont"],
-    "cast": ["Tim Robbins", "Morgan Freeman", "Bob Gunton", "William Sadler"]
+    "cast": ["Tim Robbins", "Morgan Freeman", "Bob Gunton", "William Sadler"],
+    "img": "https://www.themoviedb.org/t/p/original/hBcY0fE9pfXzvVaY4GKarweriG2.jpg"
   }
 ]

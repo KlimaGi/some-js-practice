@@ -1,0 +1,15 @@
+{
+  "title": "Doctor Strange in the Multiverse of Madness",
+  "review": { "count": 255000, "ranking": 7.1 },
+  "releaseYear": 2022,
+  "summary": "Doctor Strange teams up with a mysterious teenage girl from his dreams who can travel across multiverses, to battle multiple threats, including other-universe versions of himself, which thre...",
+  "genres": ["action", "adventure", "fantasy"],
+  "director": ["Sam Raimi"],
+  "cast": [
+    "Benedict Cumberbatch",
+    "Elizabeth Olsen",
+    "Chiwetel Ejiofor",
+    "Benedict Wong"
+  ],
+  "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg"
+}

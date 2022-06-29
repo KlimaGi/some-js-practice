@@ -1,0 +1,15 @@
+{
+  "title": "Obi-Wan Kenobi",
+  "review": { "count": 109000, "ranking": 7.2 },
+  "releaseYear": 2022,
+  "summary": "Jedi Master Obi-Wan Kenobi has to save young Leia after she is kidnapped, all the while being pursued by Imperial Inquisitors and his former Padawan, now known as Darth Vader.",
+  "genres": ["action", "adventure", "sci-fi"],
+  "director": ["Deborah Chow"],
+  "cast": [
+    "Ewan McGregor",
+    "Moses Ingram",
+    "Vivien Lyra Blair",
+    "Hayden Christensen"
+  ],
+  "img": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qJRB789ceLryrLvOKrZqLKr2CGf.jpg"
+}

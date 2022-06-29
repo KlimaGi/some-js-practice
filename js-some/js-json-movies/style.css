@@ -24,15 +24,16 @@ h2 {
 
 #movies-list {
   padding: 1rem;
-  width: 100%;
+
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .movie-item {
   color: var(--color-dark);
   padding: 1rem 2.5rem;
   margin: 1rem;
-  width: 46%;
+  width: 555px;
   background-color: var(--color-white);
   border-radius: 5px;
   box-shadow: -1px 1px 10px 5px rgba(23, 46, 83, 0.37) inset;
