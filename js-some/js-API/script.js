@@ -35,12 +35,16 @@ category();
 
 let formEl = document.querySelector("#joke-by-category");
 let jokeCategoryTextEl = document.querySelector("#category-joke-text");
+
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
-  fetch("https://api.chucknorris.io/jokes/random?category=animal")
+
+  const form = event.target;
+  const selectedValue = form.querySelector("select").value;
+
+  fetch(`https://api.chucknorris.io/jokes/random?category=${selectedValue}`)
     .then((res) => res.json())
     .then((joke) => {
-      console.log(joke.value);
       jokeCategoryTextEl.textContent = joke.value;
     });
 });
