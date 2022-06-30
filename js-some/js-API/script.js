@@ -102,20 +102,26 @@ function searchCategoryForm() {
     let searchCategory = event.target.elements["category-search"].value;
 
     let searchPhrase = event.target.elements["category-search-input"].value;
-    console.log(searchPhrase);
 
     fetch(`https://api.chucknorris.io/jokes/search?query=${searchPhrase}`)
       .then((res) => res.json())
       .then((data) => {
         let jokes = data.result;
-        console.log(searchCategory);
         console.log(jokes);
 
         let filteredJokes = jokes.filter((joke) =>
           joke.categories.includes(searchCategory)
         );
-        console.log(filteredJokes);
+
+        if (filteredJokes.length > 0) {
+          let randomIndex = Math.floor(Math.random() * filteredJokes.length);
+
+          categorySearchTextEl.textContent = filteredJokes[randomIndex].value;
+        } else {
+          categorySearchTextEl.textContent = "No jokes found...";
+        }
       });
+    categorySearchFormEl.reset();
   });
 }
 searchCategoryForm();
