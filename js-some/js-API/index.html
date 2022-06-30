@@ -15,13 +15,25 @@
   <p id="chuck-joke"></p>
   
   <form id="joke-by-category">
-    <select name="" id="categories-option">
+    <select name="category" id="categories-select">
     </select>
-    <button type="submit">Click</button>
+    <button type="submit" id="category-btn" disabled>Click</button>
   </form>
 
   <p id="category-joke-text"></p>
 
+  <form id="search-form">
+    <input type="text" id="search-input">
+    <button type="submit">search</button>
+  </form>
+  <p id="search-joke"></p>
+
+  <form id="category-search-form">
+    <input type="text" name="category-search-input" id="category-search-input">
+    <select name="category-search" id="category-search-select"></select>
+    <button type="submit" id="category-search-btn" disabled>search a joke</button>
+  </form>
+  <p id="category-search-joke"></p>
 
 </body>
-</html>
+</html>  

@@ -6,3 +6,6 @@
 
   3. Sukurti galimybę ieškoti juokelių pagal užklausos frazę.
   4. Sukurti galimybę ieškoti juokelių pagal užklausos frazę nurodytoje kategorijoje.
+
+
+https://api.chucknorris.io/
