@@ -1,0 +1,13 @@
+* {
+  color: darkslateblue;
+  background-color: #f5f0eb;
+}
+.block {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.block fieldset {
+  margin: 2rem 0;
+  border-radius: 3px;
+}

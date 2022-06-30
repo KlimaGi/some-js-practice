@@ -5,35 +5,50 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS API</title>
+  <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
 
-  <h2>JS API</h2>
+  <div class="block">
+    <h2>JS chuck API</h2>
 
-  <button id="new-joke">New joke</button>
-  <p id="chuck-joke"></p>
-  
-  <form id="joke-by-category">
-    <select name="category" id="categories-select">
-    </select>
-    <button type="submit" id="category-btn" disabled>Click</button>
-  </form>
+    <fieldset>
+      <legend>Random joke</legend>
+      <button id="new-joke">New joke</button>
+      <p id="chuck-joke"></p>
+    </fieldset>
+    
+    <fieldset>
+      <legend>Joke by category</legend>
+      <form id="joke-by-category">
+      <select name="category" id="categories-select">
+      </select>
+      <button type="submit" id="category-btn" disabled>Click</button>
+    </form>
 
-  <p id="category-joke-text"></p>
-
-  <form id="search-form">
-    <input type="text" id="search-input">
-    <button type="submit">search</button>
-  </form>
-  <p id="search-joke"></p>
-
-  <form id="category-search-form">
-    <input type="text" name="category-search-input" id="category-search-input">
-    <select name="category-search" id="category-search-select"></select>
-    <button type="submit" id="category-search-btn" disabled>search a joke</button>
-  </form>
-  <p id="category-search-joke"></p>
+    <p id="category-joke-text"></p>
+    </fieldset>
+    
+    <fieldset>
+      <legend>Joke by search word</legend>
+      <form id="search-form">
+        <input type="text" id="search-input">
+        <button type="submit">search</button>
+      </form>
+      <p id="search-joke"></p>
+    </fieldset>
+    
+    <fieldset>
+      <legend>Joke by search word and by category</legend>
+      <form id="category-search-form">
+        <input type="text" name="category-search-input" id="category-search-input">
+        <select name="category-search" id="category-search-select"></select>
+        <button type="submit" id="category-search-btn" disabled>search a joke</button>
+      </form>
+      <p id="category-search-joke"></p>
+    </fieldset>
+  </div>
 
 </body>
 </html>  
