@@ -1,2 +1,1 @@
-console.groupCollapsed("");
-console.groupEnd();
+console.log("");
