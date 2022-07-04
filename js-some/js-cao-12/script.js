@@ -64,3 +64,55 @@ nameSurnameFormEl.addEventListener("submit", (event) => {
   //console.log(result.slice(1));
   fieldsetEl.append(nameEl, surNameEl);
 });
+
+// 13.1
+function alertName(name) {
+  alert(name);
+}
+function consoleName(name) {
+  console.log(name);
+}
+function coreFunction(word, fn) {
+  let capitalize = word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  fn(capitalize);
+}
+coreFunction("pear", consoleName);
+
+// 13.2
+const cars = ["BMW", "VW", "Audi", "tesLa"];
+cars.forEach((car) => console.log(car));
+
+cars.map((car, index) => console.log(index + " " + car));
+
+let capitalize = cars.map(
+  (car) => car.charAt(0).toUpperCase() + car.slice(1).toLocaleLowerCase()
+);
+console.log(capitalize);
+
+let ages = [8, 3, 5, 11, 13, 18, 2, 135, 63];
+let newAges = ages.filter((num) => num >= 18);
+
+console.log(newAges);
+
+let words = [
+  "characteristic",
+  "gene",
+  "knowledge",
+  "killer",
+  "reign",
+  "zone",
+  "Kinship",
+  "knot",
+  "king",
+];
+let word = words.find((item) => item.charAt(0).toLowerCase() === "k");
+
+let wordK = words.some(
+  (item) => item.charAt(0) === item.charAt(0).toUpperCase()
+);
+console.log(wordK); // true
+
+let wordk = words.every(
+  (item) => item.charAt(0) === item.charAt(0).toUpperCase()
+);
+console.log(wordk); // false
