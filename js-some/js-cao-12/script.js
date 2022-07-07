@@ -116,3 +116,40 @@ let wordk = words.every(
   (item) => item.charAt(0) === item.charAt(0).toUpperCase()
 );
 console.log(wordk); // false
+
+// 14.1
+
+let nums = [11, 123, 2];
+nums.sort((a, b) => b - a);
+console.log(nums);
+
+let sorted = words.sort();
+console.log(sorted);
+
+let sortedZA = words.sort((a, b) => (b > a ? 1 : -1));
+console.log(sortedZA);
+
+let arr = [5, 10, 20, 11, 12, 1, 0, 14, 25];
+let sortedToLowest = arr.sort((a, b) => b - a);
+console.log(sortedToLowest);
+
+let numArr = [10, 5, 20, 4];
+let bigestNum = numArr.sort((a, b) => a - b).pop();
+console.log(bigestNum);
+
+// 14.2
+const numR = [1, 5, 10, 20];
+let result = numR.reduce((accumulator, current) => accumulator + current, 10);
+console.log(result);
+
+const someData = ["BMW", "MCB", "VWG", "Toyota", "AUDI"];
+const someResult = someData.reduce(
+  (acc, curr) => (curr.length === 3 ? acc + 1 : acc),
+  0
+);
+console.log(someResult);
+
+let arrResult = arr.reduce((acc, curr) => (acc > curr ? acc : (acc = curr)), 0);
+console.log(arrResult);
+
+// 14.3
