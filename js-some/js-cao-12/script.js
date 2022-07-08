@@ -138,18 +138,68 @@ let bigestNum = numArr.sort((a, b) => a - b).pop();
 console.log(bigestNum);
 
 // 14.2
+// elementu suma
 const numR = [1, 5, 10, 20];
 let result = numR.reduce((accumulator, current) => accumulator + current, 10);
 console.log(result);
-
+// kiek elementu, kuriu ilgis = 3
 const someData = ["BMW", "MCB", "VWG", "Toyota", "AUDI"];
 const someResult = someData.reduce(
   (acc, curr) => (curr.length === 3 ? acc + 1 : acc),
   0
 );
 console.log(someResult);
-
+// grazinti didziausia reiksme
 let arrResult = arr.reduce((acc, curr) => (acc > curr ? acc : (acc = curr)), 0);
 console.log(arrResult);
 
 // 14.3
+const people = [
+  {
+    name: "Petras",
+    age: "18",
+  },
+  {
+    name: "Jonas",
+    age: 15,
+  },
+  {
+    name: "Antanas",
+    age: 20,
+  },
+  {
+    name: "Urtė",
+    age: 10,
+  },
+  {
+    name: "Diana",
+    age: 25,
+  },
+  {
+    name: "Ieva",
+    age: 16,
+  },
+];
+let adult = people
+  .filter((item) => item.age >= 18)
+  .map((item) => item.name)
+  .sort();
+console.log("adult", adult);
+
+let things = [
+  { name: "lemonade", price: 4 },
+  { name: "lime", price: 3 },
+  { name: "water", price: 2 },
+  { name: "book", price: 22 },
+];
+function twoOppositePriceItems(obj) {
+  let prices = obj.sort((a, b) => a.price - b.price);
+  let minPriceItemName = prices[0].name;
+  let maxPriceItemName = prices[prices.length - 1].name;
+
+  return {
+    cheapest: minPriceItemName,
+    mostExpensive: maxPriceItemName,
+  };
+}
+console.log(twoOppositePriceItems(things));
