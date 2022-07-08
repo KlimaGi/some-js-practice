@@ -203,3 +203,87 @@ function twoOppositePriceItems(obj) {
   };
 }
 console.log(twoOppositePriceItems(things));
+
+// 15.1
+let secondsFromMin = (minutes) => minutes * 60;
+console.log(secondsFromMin(2));
+// 15.2
+let days = (years) => years * 365;
+console.log(days(2));
+// 15.3
+let square = (x) => x * x;
+console.log(square(2));
+// 15.4
+let triangleWidth = (height, width) => (height * width) / 2;
+console.log(triangleWidth(2, 3));
+// 15.5
+let lastLetter = (word) => word.slice(-1);
+console.log(lastLetter("day"));
+// 15.6
+let reverseWord = (word) => word.split("").reverse().join("");
+console.log(reverseWord("day"));
+
+// 15.7
+let numbers = [-1, -100, -5, 10, 0, 11];
+let closeTo0 = (arr) =>
+  arr
+    .filter((num) => num < 0)
+    .sort((a, b) => b - a)
+    .shift();
+console.log(closeTo0(numbers));
+console.log(numbers); // do not change original
+
+// 15.8
+let randomArrByNum = (x) => {
+  let arr = [];
+  for (let i = 0; i <= x; i++) {
+    let random = Math.floor(Math.random() * 10 + 1);
+    arr.push(random);
+  }
+  return arr;
+};
+console.log(randomArrByNum(5));
+
+// 15.9
+let isSumMoreThan100 = (a, b) => a + b > 100;
+console.log(isSumMoreThan100(5, 110));
+
+// 15.10
+let persons = [
+  { name: "Alfredas", age: 25 },
+  { name: "Ajonas", age: 25 },
+  { name: "Kasparas", age: 20 },
+];
+let filtered = (personsObj) =>
+  personsObj
+    .sort((a, b) => (a.name > b.name ? 1 : -1))
+    .sort((a, b) => a.age - b.age);
+console.log(filtered(persons));
+
+// 15.11
+let weekday = (day) => {
+  let dayWord = new Date(day).toString().split(" ").shift();
+  return [dayWord === "Sat" || dayWord === "Sun", dayWord];
+};
+console.log(weekday("2022-07-09"));
+
+// function isItHoliday(date) {
+//   const holidays = ["2020-01-01", "2020-05-25"];
+//   return holidays.some(
+//     (holiday) => new Date(holiday).getDate() === date.getDate()
+//   );
+// }
+// console.log(isItHoliday(new Date("2020-05-25")));
+
+console.log("--------------");
+// 15.12
+let numsArr = [1, 2, 4, 5];
+
+let needNum = (arr) => arr.find((x, index) => x + 1 !== arr[index + 1]) + 1;
+
+console.log(needNum(numsArr));
+
+const missingNumber = (array) =>
+  array.find((x, i) => x + 1 !== array[i + 1]) + 1;
+
+console.log(missingNumber(numsArr));
