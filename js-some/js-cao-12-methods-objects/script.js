@@ -720,10 +720,30 @@ let hasXSS = data
   .sort((a, b) => (a.first_name > b.first_name ? 1 : -1));
 console.log("hasXSS", hasXSS);
 
-// 15.2.4
+// 15.2.4 ---> 1 budas
 let nameShirtSize = hasXSS.map((item) => ({
   id: item.id,
   first_name: item.first_name,
   shirt_size: item.shirt_size,
 }));
 console.log("nameShirtSize", nameShirtSize);
+// [
+//   { id: 28, first_name: "Adi", shirt_size: "S" },
+//   { id: 25, first_name: "Bernadine", shirt_size: "S" },
+//   { id: 18, first_name: "Cedric", shirt_size: "S" },
+//   { id: 4, first_name: "Clim", shirt_size: "XS" },
+// ];
+// 15.2.4 ---> 2 budas
+let nameShirtSize2 = hasXSS.map((item) => {
+  let { gender, car_model, car_year, ...other } = item;
+  return other;
+});
+console.log("nameShirtSize2", nameShirtSize2);
+// ];
+// 15.2.4 ---> 3 budas
+let nameShirtSize3 = hasXSS.map(({ id, first_name, shirt_size }) => ({
+  id,
+  first_name,
+  shirt_size,
+}));
+console.log("nameShirtSize3", nameShirtSize3);
