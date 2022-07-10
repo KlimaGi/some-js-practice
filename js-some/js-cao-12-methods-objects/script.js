@@ -747,3 +747,34 @@ let nameShirtSize3 = hasXSS.map(({ id, first_name, shirt_size }) => ({
   shirt_size,
 }));
 console.log("nameShirtSize3", nameShirtSize3);
+
+// 16.1 - 2
+function Car(brand, model, engine, price) {
+  this.brand = brand;
+  this.model = model;
+  this.engine = engine;
+  this.basePrice = price;
+  this.getPrice = function () {
+    let additionalPrice = 0;
+    if (this.engine === "electric") additionalPrice = 1000;
+    else if (this.engine === "diesel") additionalPrice = 5000;
+    return this.basePrice + additionalPrice;
+  };
+  this.turnOn = function () {
+    alert(`${brand}, vrooom`);
+  };
+}
+const tesla = new Car("tesla", "b11", "diesel", 40000);
+//tesla.turnOn();
+const audi = new Car("audi", "bulka", "petrol", 21000);
+//audi.turnOn();
+
+console.log("tesla.getPrice()", tesla.getPrice());
+// 16.2
+// tesla.basePrice = 12000;
+// audi.basePrice = 8000;
+// tesla.getPrice = function () {
+//   let price = this.basePrice + 10000;
+//   alert(price);
+// };
+// tesla.getPrice();
