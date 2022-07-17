@@ -808,7 +808,27 @@ fullNameFormEl.addEventListener("submit", (event) => {
     .split(" ")
     .map((word) => capitalizeText(word));
 
-  console.log("fullName", name, surname);
   const person = new Person(name, surname);
   person.addToTable();
 });
+
+// 17.2
+
+// 17.3
+let arrWithSameNum = [1, 3, 3, 5, 5, 5];
+// ->1
+let resultUniqueNum = arrWithSameNum.filter(
+  (item, index) => arrWithSameNum.indexOf(item) === index
+);
+console.log("resultUniqueNum", resultUniqueNum);
+//->2
+let uniques = [...new Set(arrWithSameNum)];
+console.log("uniques", uniques);
+// -> 3
+let arrUniques = [];
+arrWithSameNum.forEach((item) => {
+  if (!arrUniques.includes(item)) {
+    arrUniques.push(item);
+  }
+});
+console.log("arrUniques", arrUniques);
