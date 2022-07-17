@@ -778,3 +778,37 @@ console.log("tesla.getPrice()", tesla.getPrice());
 //   alert(price);
 // };
 // tesla.getPrice();
+
+// 17.1 add input value to table
+function Person(name, surname) {
+  this.name = name;
+  this.surname = surname;
+  this.addToTable = function () {
+    const nameColumn = document.createElement("td");
+    nameColumn.textContent = this.name;
+    const surnameColumn = document.createElement("td");
+    surnameColumn.textContent = this.surname;
+    const tableRow = document.createElement("tr");
+    tableRow.append(nameColumn, surnameColumn);
+    const tableEl = document.querySelector("#full-name-table");
+    tableEl.append(tableRow);
+  };
+}
+
+const capitalizeText = (text) =>
+  text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+
+const fullNameFormEl = document.querySelector("#full-name-form");
+fullNameFormEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  let fullName = event.target.elements["full-name"].value;
+  let [name, surname] = fullName
+    .trim()
+    .split(" ")
+    .map((word) => capitalizeText(word));
+
+  console.log("fullName", name, surname);
+  const person = new Person(name, surname);
+  person.addToTable();
+});
