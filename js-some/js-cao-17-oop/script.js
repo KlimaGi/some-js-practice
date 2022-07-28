@@ -153,3 +153,31 @@ let jazzify = (arr) =>
   });
 
 console.log("jazzify", jazzify(arrjazz));
+
+// 19. LocalStorage vs Cookie
+document.cookie = "name=Lily";
+console.log("document.cookie", document.cookie);
+
+localStorage.setItem("name", "Zuzu");
+let ls = localStorage.getItem("name");
+console.log("ls", ls);
+
+let localStFormEl = document.querySelector("#local-st");
+localStFormEl.addEventListener("submit", (event) => {
+  const xname = event.target.elements.name.value;
+  console.log("xname", xname);
+
+  const array = [];
+  array.push(xname);
+
+  localStorage.setItem("xarr", array);
+});
+
+let titleEl = document.querySelector("#title");
+titleEl.textContent = localStorage.getItem("xname");
+
+const cars = ["bmw", "tesla"];
+const carsStr = JSON.stringify(cars);
+const carsParse = JSON.parse(carsStr);
+console.log("carsStr", typeof carsStr);
+console.log("carsParse", carsParse);
