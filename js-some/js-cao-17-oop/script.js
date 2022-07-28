@@ -90,3 +90,66 @@ arrWithSameNum.forEach((item) => {
   }
 });
 console.log("arrUniques", arrUniques);
+
+// 18.1
+class Person1 {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  compareAge(other) {
+    let text =
+      this.age > 18 ? `${this.name} is adult` : `${this.name} is not adult`;
+    // alert(text);
+    console.log("text", text);
+  }
+}
+const p1 = new Person1("Petras", 21);
+p1.compareAge();
+
+// 18.2
+let arr1 = [1, 5, "a", "g", "z", 6];
+let numArr = arr1.filter((x) => typeof x === "number");
+console.log("numArr", numArr);
+
+// 18.3
+let text = "Zoe 123 Navigate";
+let result = text
+  .split("")
+  .map((item) => (item.match(/[a-z]/i) ? item.repeat(2) : item))
+  .join("");
+console.log("result", result);
+
+// 18.4
+
+let postCode1 = "32453";
+let postCode2 = "324ab";
+let postCode3 = "32 ab";
+
+let isCorrect = (text) => {
+  let resultText;
+  let isNoGaps = text.length === text.split(" ").join("").length;
+  if (!isNoGaps) return (resultText = "incorrect");
+
+  let is5Number = /[0-9]{5}/.test(text);
+  if (is5Number) return (resultText = "correct");
+
+  let is3Nums2Letters = /[0-9]{3}[A-Za-z]{2}$/.test(text);
+  if (is3Nums2Letters) return (resultText = "correct");
+
+  return (resultText = "incorrect");
+};
+let resultText = isCorrect(postCode3);
+console.log("resultText", resultText);
+
+// 18.5
+let arrjazz = ["Ge", "F7", "C3"];
+let jazzify = (arr) =>
+  arr.map((item) => {
+    let end = item.slice(-1);
+    if (end == "7") return item;
+    else return item.concat("7");
+  });
+
+console.log("jazzify", jazzify(arrjazz));
