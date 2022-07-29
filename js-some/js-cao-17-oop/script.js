@@ -173,6 +173,7 @@ localStFormEl.addEventListener("submit", (event) => {
   localStorage.setItem("xarr", array);
 });
 
+// 18
 let titleEl = document.querySelector("#title");
 titleEl.textContent = localStorage.getItem("xname");
 
@@ -181,3 +182,61 @@ const carsStr = JSON.stringify(cars);
 const carsParse = JSON.parse(carsStr);
 console.log("carsStr", typeof carsStr);
 console.log("carsParse", carsParse);
+
+// 18.1
+// Sukurk formą, kuri leis įrašyti vardą - jis bus išsaugojamas į cookies. Jei
+//vardas jau egzistuoja - išmeta tik vardą ir mygtuką, su kuriuo cookies ištrinamas.
+// Jei neegzistuoja - formą.
+function setCookie(cname, cvalue, exdays) {
+  const day = new Date();
+  day.setTime(day.getTime() + exdays * 24 * 60 * 60 * 1000);
+  let expires = `expires=${day.toUTCString()}`;
+  document.cookie = `${cname}=${cvalue};${expires};path=/`;
+}
+
+function getCookie(cname) {
+  let name = `${cname}=`;
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+const cookieFormEl = document.querySelector("#cookie-form");
+const outputEl = document.querySelector("#output");
+const name = getCookie("name");
+
+// jei puslapis bus perkraunamas
+if (getCookie(name)) {
+  cookieFormEl.classList.add("hidden");
+  outputEl.classList.remove("hidden");
+} else {
+  cookieFormEl.classList.remove("hidden");
+  outputEl.classList.add("hidden");
+}
+
+cookieFormEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const name = event.target.elements.name.value;
+  setCookie("name", name, 1);
+  let nameEl = document.querySelector("#name-cookie");
+  nameEl.textContent = name;
+  cookieFormEl.classList.add("hidden");
+  outputEl.classList.remove("hidden");
+});
+
+let eraseEl = document.querySelector("#erase");
+eraseEl.addEventListener("click", (event) => {
+  document.cookie = "";
+  document.querySelector("#name").textContent = "";
+  outputEl.classList.add("hidden");
+  cookieFormEl.classList.remove("hidden");
+});
